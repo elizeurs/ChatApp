@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7512059C2A6887AC0051B98D /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512059B2A6887AC0051B98D /* Views.swift */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
 		75EA90252A673456009D10AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90242A673456009D10AB /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7512059B2A6887AC0051B98D /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		75DBEE092A673B1E00A83291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		75EA90212A673456009D10AB /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7512059A2A68875E0051B98D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7512059B2A6887AC0051B98D /* Views.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		75EA90182A673456009D10AB = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		75EA903A2A6737C3009D10AB /* Shared Files */ = {
 			isa = PBXGroup;
 			children = (
+				7512059A2A68875E0051B98D /* Extensions */,
 			);
 			path = "Shared Files";
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 			files = (
 				75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */,
 				75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */,
+				7512059C2A6887AC0051B98D /* Views.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75EA90252A673456009D10AB /* AppDelegate.swift in Sources */,
 				75EA90272A673456009D10AB /* SceneDelegate.swift in Sources */,
