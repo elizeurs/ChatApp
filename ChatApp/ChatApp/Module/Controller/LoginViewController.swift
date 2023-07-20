@@ -61,22 +61,16 @@ class LoginViewController: UIViewController {
   
   private lazy var forgetPasswordButton: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Forget your password? Get Help Signing in", for: .normal)
-    button.tintColor = .black
+    button.attributedText(firstString: "Forgot your password?", secondString: "Get Help Signing in")
     button.setHeight(50)
-    button.layer.cornerRadius = 5
-    button.titleLabel?.font = .boldSystemFont(ofSize: 19)
     button.addTarget(self, action: #selector(handleForgetPassword), for: .touchUpInside)
     return button
   }()
   
   private lazy var signUpButton: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Don't have an account? Sign up", for: .normal)
-    button.tintColor = .black
+    button.attributedText(firstString: "Don't have an account?", secondString: "Sign up")
     button.setHeight(50)
-    button.layer.cornerRadius = 5
-    button.titleLabel?.font = .boldSystemFont(ofSize: 16)
     button.addTarget(self, action: #selector(handleSignUpButton), for: .touchUpInside)
     return button
   }()
@@ -84,7 +78,7 @@ class LoginViewController: UIViewController {
   private let contLabel: UILabel = {
     let label = UILabel()
     label.text = "or continue with Gooble"
-    label.tintColor = .lightGray
+    label.textColor = .lightGray
     label.font = .systemFont(ofSize: 14)
     return label
   }()
