@@ -46,6 +46,61 @@ class LoginViewController: UIViewController {
     return tf
   }()
   
+  // lazy var - if you add any target.
+  private lazy var loginButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Login", for: .normal)
+    button.tintColor = .white
+    button.backgroundColor = .black
+    button.setHeight(50)
+    button.layer.cornerRadius = 5
+    button.titleLabel?.font = .boldSystemFont(ofSize: 19)
+    button.addTarget(self, action: #selector(handleLoginVC), for: .touchUpInside)
+    return button
+  }()
+  
+  private lazy var forgetPasswordButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Forget your password? Get Help Signing in", for: .normal)
+    button.tintColor = .black
+    button.setHeight(50)
+    button.layer.cornerRadius = 5
+    button.titleLabel?.font = .boldSystemFont(ofSize: 19)
+    button.addTarget(self, action: #selector(handleForgetPassword), for: .touchUpInside)
+    return button
+  }()
+  
+  private lazy var signUpButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Don't have an account? Sign up", for: .normal)
+    button.tintColor = .black
+    button.setHeight(50)
+    button.layer.cornerRadius = 5
+    button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+    button.addTarget(self, action: #selector(handleSignUpButton), for: .touchUpInside)
+    return button
+  }()
+  
+  private let contLabel: UILabel = {
+    let label = UILabel()
+    label.text = "or continue with Gooble"
+    label.tintColor = .lightGray
+    label.font = .systemFont(ofSize: 14)
+    return label
+  }()
+  
+  private lazy var googleButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Google", for: .normal)
+    button.tintColor = .white
+    button.backgroundColor = .black
+    button.setDimensions(height: 50, width: 150)
+    button.layer.cornerRadius = 5
+    button.titleLabel?.font = .boldSystemFont(ofSize: 19)
+    button.addTarget(self, action: #selector(handleGoogleSignInVC), for: .touchUpInside)
+    return button
+  }()
+  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,11 +119,34 @@ class LoginViewController: UIViewController {
     profileImageView.anchor(top: welcomeLabel.bottomAnchor, paddingTop: 20)
     profileImageView.centerX(inView: view)
     
-    let stackView = UIStackView(arrangedSubviews: [emailTF, passwordlTF])
+    let stackView = UIStackView(arrangedSubviews: [emailTF, passwordlTF, loginButton, forgetPasswordButton])
     stackView.axis = .vertical
     stackView.spacing = 20
     
     view.addSubview(stackView)
     stackView.anchor(top: profileImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 30, paddingRight: 30)
+    
+    view.addSubview(signUpButton)
+    signUpButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
+    signUpButton.centerX(inView: view)
+    
+    view.addSubview(contLabel)
+    contLabel.centerX(inView: view, topAnchor: forgetPasswordButton.bottomAnchor, paddingTop: 30)
+    
+    view.addSubview(googleButton)
+    googleButton.centerX(inView: view, topAnchor: contLabel.bottomAnchor, paddingTop: 12)
+  }
+  
+  @objc func handleLoginVC() {
+    print("Login Login")
+  }
+  
+  @objc func handleForgetPassword() {
+  }
+  
+  @objc func handleSignUpButton() {
+  }
+  
+  @objc func handleGoogleSignInVC() {
   }
 }
