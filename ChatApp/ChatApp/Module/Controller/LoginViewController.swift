@@ -29,25 +29,29 @@ class LoginViewController: UIViewController {
     return iv
   }()
   
-  private let emailTF: UITextField = {
-    let tf = UITextField()
-    tf.tintColor = .black
-    tf.setHeight(50)
-    tf.placeholder = "Email"
-    tf.backgroundColor = .lightGray
-    tf.keyboardType = .emailAddress
-    return tf
-  }()
+  private let emailTF = CustomTextField(placelolder: "Email", keyboardType: .emailAddress)
   
-  private let passwordlTF: UITextField = {
-    let tf = UITextField()
-    tf.tintColor = .black
-    tf.setHeight(50)
-    tf.placeholder = "Password"
-    tf.backgroundColor = .lightGray
-    tf.isSecureTextEntry = true
-    return tf
-  }()
+//  private let emailTF: UITextField = {
+//    let tf = UITextField()
+//    tf.tintColor = .black
+//    tf.setHeight(50)
+//    tf.placeholder = "Email"
+//    tf.backgroundColor = .lightGray
+//    tf.keyboardType = .emailAddress
+//    return tf
+//  }()
+  
+  private let passwordTF = CustomTextField(placelolder: "Password", isSecure: true)
+  
+//  private let passwordlTF: UITextField = {
+//    let tf = UITextField()
+//    tf.tintColor = .black
+//    tf.setHeight(50)
+//    tf.placeholder = "Password"
+//    tf.backgroundColor = .lightGray
+//    tf.isSecureTextEntry = true
+//    return tf
+//  }()
   
   // lazy var - if you add any target.
   private lazy var loginButton: UIButton = {
@@ -119,7 +123,7 @@ class LoginViewController: UIViewController {
     profileImageView.anchor(top: welcomeLabel.bottomAnchor, paddingTop: 20)
     profileImageView.centerX(inView: view)
     
-    let stackView = UIStackView(arrangedSubviews: [emailTF, passwordlTF, loginButton, forgetPasswordButton])
+    let stackView = UIStackView(arrangedSubviews: [emailTF, passwordTF, loginButton, forgetPasswordButton])
     stackView.axis = .vertical
     stackView.spacing = 20
     
@@ -139,7 +143,7 @@ class LoginViewController: UIViewController {
   
   private func configureForTextField() {
     emailTF.addTarget(self, action: #selector(handleTextChanged(sender:)), for: .editingChanged)
-    passwordlTF.addTarget(self, action: #selector(handleTextChanged(sender:)), for: .editingChanged)
+    passwordTF.addTarget(self, action: #selector(handleTextChanged(sender:)), for: .editingChanged)
   }
   
   @objc func handleLoginVC() {
