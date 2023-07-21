@@ -91,7 +91,10 @@ class RegisterViewController: UIViewController {
   }
   
   @objc func handlePlusPhotoButton() {
-    
+    let picker = UIImagePickerController()
+    picker.delegate = self
+    picker.allowsEditing = true
+    present(picker, animated: true, completion: nil)
   }
   
   @objc func handleSignUpButton() {
@@ -116,5 +119,21 @@ class RegisterViewController: UIViewController {
     signUpButton.isEnabled = viewModel.formIsValid
     signUpButton.backgroundColor = viewModel.backgroundColor
     signUpButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+  }
+}
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    guard let selectedImage = info[.editedImage] as? UIImage else { return }
+    
+    plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
+    plusPhotoButton.layer.masksToBounds = true
+    plusPhotoButton.layer.borderColor = UIColor.black.cgColor
+    plusPhotoButton.layer.borderWidth = 2
+    plusPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+    
+//    print("Captured")
+    
+    dismiss(animated: true, completion: nil)
   }
 }
