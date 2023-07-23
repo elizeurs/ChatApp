@@ -17,4 +17,15 @@ extension UIButton {
     
     setAttributedTitle(attributedTitle, for: .normal)
   }
+  
+  func blackButton(buttonText: String) {
+    setTitle(buttonText, for: .normal)
+    tintColor = .white
+    backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    setTitleColor(UIColor(white: 1, alpha: 0.7), for: .normal)
+    setHeight(50)
+    layer.cornerRadius = 5
+    titleLabel?.font = .boldSystemFont(ofSize: 19)
+    isEnabled = false
+  }
 }

@@ -40,15 +40,8 @@ class RegisterViewController: UIViewController {
   
   private lazy var signUpButton: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Sign Up", for: .normal)
-    button.tintColor = .white
-    button.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-    button.setTitleColor(UIColor(white: 1, alpha: 0.7), for: .normal)
-    button.setHeight(50)
-    button.layer.cornerRadius = 5
-    button.titleLabel?.font = .boldSystemFont(ofSize: 19)
+    button.blackButton(buttonText: "Sign up")
     button.addTarget(self, action: #selector(handleSignUpButton), for: .touchUpInside)
-    button.isEnabled = false
     return button
   }()
   

@@ -10,6 +10,8 @@
 		7512059C2A6887AC0051B98D /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512059B2A6887AC0051B98D /* Views.swift */; };
 		752677202A69941B00E4B709 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526771F2A69941B00E4B709 /* Buttons.swift */; };
 		752677222A69C70600E4B709 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752677212A69C70600E4B709 /* LoginViewModel.swift */; };
+		75AEA3312A6DCB1800808B4A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AEA3302A6DCB1800808B4A /* CustomLabel.swift */; };
+		75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AEA3322A6DCE5500808B4A /* CustomImageView.swift */; };
 		75C8BFB72A6AFD550023ABA1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8BFB62A6AFD550023ABA1 /* CustomTextField.swift */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
@@ -25,6 +27,8 @@
 		7512059B2A6887AC0051B98D /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		7526771F2A69941B00E4B709 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		752677212A69C70600E4B709 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75AEA3302A6DCB1800808B4A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		75AEA3322A6DCE5500808B4A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		75C8BFB62A6AFD550023ABA1 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		75DBEE092A673B1E00A83291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				75C8BFB62A6AFD550023ABA1 /* CustomTextField.swift */,
+				75AEA3302A6DCB1800808B4A /* CustomLabel.swift */,
+				75AEA3322A6DCE5500808B4A /* CustomImageView.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -229,11 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				752677202A69941B00E4B709 /* Buttons.swift in Sources */,
+				75AEA3312A6DCB1800808B4A /* CustomLabel.swift in Sources */,
 				75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */,
 				75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */,
 				7512059C2A6887AC0051B98D /* Views.swift in Sources */,
 				752677222A69C70600E4B709 /* LoginViewModel.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
+				75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */,
 				75EA90252A673456009D10AB /* AppDelegate.swift in Sources */,
 				75EA90272A673456009D10AB /* SceneDelegate.swift in Sources */,
 				75C8BFB72A6AFD550023ABA1 /* CustomTextField.swift in Sources */,
