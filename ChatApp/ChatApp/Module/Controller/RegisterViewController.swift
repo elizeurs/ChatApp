@@ -45,6 +45,7 @@ class RegisterViewController: UIViewController {
     return button
   }()
   
+  private var profileImage: UIImage?
   
   //MARK: - Lifecycle
   override func viewDidLoad() {
@@ -91,7 +92,16 @@ class RegisterViewController: UIViewController {
   }
   
   @objc func handleSignUpButton() {
-    print("Signup Signup")
+    guard let email = emailTF.text,
+    let password = passwordTF.text,
+    let username = usernameTF.text,
+    let fullname = fullnameTF.text,
+    let profileImage = profileImage else {
+      return
+    }
+    
+    let credential = AuthCredential(email: email, password: password, username: username, fullname: fullname, profileImage: profileImage)
+//    print("Signup Signup")
   }
   
   @objc func handleTextField(sender: UITextField) {
@@ -118,6 +128,8 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
     guard let selectedImage = info[.editedImage] as? UIImage else { return }
+    
+    self.profileImage = selectedImage
     
     plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
     plusPhotoButton.layer.masksToBounds = true
