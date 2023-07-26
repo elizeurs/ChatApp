@@ -146,7 +146,22 @@ class LoginViewController: UIViewController {
   }
   
   @objc func handleLoginVC() {
-    print("Login Login")
+    guard let email = emailTF.text?.lowercased(),
+    let password = passwordTF.text else { return }
+//    print("Login Login")
+    
+    showLoader(true)
+    AuthServices.loginUser(withEmail: email, withPassword: password) { [weak self] result, error in
+      self?.showLoader(false)
+      if let error = error {
+        self?.showMessage(title: "Error", message: error.localizedDescription)
+//        print("Error \(error.localizedDescription)")
+        return
+      }
+      self?.showLoader(false)
+      print("Login successful!")
+      self?.navToConversationVC()
+    }
   }
   
   @objc func handleForgetPassword() {
@@ -154,6 +169,7 @@ class LoginViewController: UIViewController {
   
   @objc func handleSignUpButton() {
     let controller = RegisterViewController()
+    controller.delegate = self
     navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -170,5 +186,20 @@ class LoginViewController: UIViewController {
     loginButton.isEnabled = viewModel.formIsValid
     loginButton.backgroundColor = viewModel.backgroundColor
     loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+  }
+  
+  private func navToConversationVC() {
+    let controller = ConversationViewController()
+    let nav = UINavigationController(rootViewController: controller)
+    nav.modalPresentationStyle = .fullScreen
+    self.present(nav, animated: true, completion: nil)
+  }
+}
+
+// MARK: - Registration Delegate
+extension LoginViewController: RegisterViewControllerDelegate {
+  func didSuccessfulCreateAccount(_ vc: RegisterViewController) {
+    vc.navigationController?.popViewController(animated: true)
+    navToConversationVC()
   }
 }

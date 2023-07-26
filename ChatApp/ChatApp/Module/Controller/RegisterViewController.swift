@@ -5,12 +5,18 @@
 //  Created by Elizeu RS on 18/07/23.
 //
 
-import Foundation
 import UIKit
+
+protocol RegisterViewControllerDelegate: AnyObject {
+  func didSuccessfulCreateAccount(_ vc: RegisterViewController)
+}
 
 class RegisterViewController: UIViewController {
   
   //MARK: - Properties
+  
+  weak var delegate: RegisterViewControllerDelegate?
+  
   var viewModel = RegViewModel()
   
   private lazy var alreadyHaveAccountButton: UIButton = {
@@ -101,12 +107,17 @@ class RegisterViewController: UIViewController {
     let credential = AuthCredential(email: email, password: password, username: username, fullname: fullname, profileImage: profileImage)
 //    print("Signup Signup")
     
+    showLoader(true)
     AuthServices.registerUser(credential: credential) { error in
+      self.showLoader(false)
       if let error = error {
-        print("error \(error.localizedDescription)")
+        self.showMessage(title: "Error", message: error.localizedDescription)
+//        print("error \(error.localizedDescription)")
         return
       }
     }
+    
+    delegate?.didSuccessfulCreateAccount(self)
   }
   
   @objc func handleTextField(sender: UITextField) {
