@@ -11,6 +11,7 @@ import Firebase
 class ConversationViewController: UIViewController {
   // MARK: - Properties
   private var user: User
+  private let tableView = UITableView()
   
   // MARK: - Lifecycle
   init(user: User) {
@@ -25,17 +26,31 @@ class ConversationViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    configureTableView()
   }
   
   // MARK: - Helpers
+  private func configureTableView() {
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.rowHeight = 80
+    tableView.backgroundColor = .systemRed
+  }
+  
   private func configureUI() {
     title = user.fullname
 //    title = "Conversation"
     view.backgroundColor = .white
     
     let logoutBarButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+    let newConversationBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(handleNewChat))
     
     navigationItem.leftBarButtonItem = logoutBarButton
+    navigationItem.rightBarButtonItem = newConversationBarButton
+    
+    view.addSubview(tableView)
+    tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingRight: 15)
+
   }
   
   @objc func handleLogout() {
@@ -46,5 +61,22 @@ class ConversationViewController: UIViewController {
     } catch {
       print("Error sign out")
     }
+  }
+  
+  @objc func handleNewChat() {
+    let controller = NewChatViewController()
+    let nav = UINavigationController(rootViewController: controller)
+    present(nav, animated: true, completion: nil)
+  }
+}
+
+// MARK: - TableView
+extension ConversationViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 5
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
   }
 }
