@@ -5,8 +5,10 @@
 //  Created by Elizeu RS on 18/07/23.
 //
 
-import Foundation
 import UIKit
+import Firebase
+//import GoogleSignIn
+
 
 class LoginViewController: UIViewController {
   //MARK: - Properties
@@ -174,6 +176,7 @@ class LoginViewController: UIViewController {
   }
   
   @objc func handleGoogleSignInVC() {
+//    setupGoogle()
   }
   
   @objc func handleTextChanged(sender: UITextField) {
@@ -189,10 +192,16 @@ class LoginViewController: UIViewController {
   }
   
   private func navToConversationVC() {
-    let controller = ConversationViewController()
-    let nav = UINavigationController(rootViewController: controller)
-    nav.modalPresentationStyle = .fullScreen
-    self.present(nav, animated: true, completion: nil)
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    showLoader(true)
+    UserServices.fetchUser(uid: uid) { user in
+      self.showLoader(false)
+      let controller = ConversationViewController(user: user)
+      let nav = UINavigationController(rootViewController: controller)
+      nav.modalPresentationStyle = .fullScreen
+      self.present(nav, animated: true, completion: nil)
+//      print("User \(user)")
+    }
   }
 }
 
