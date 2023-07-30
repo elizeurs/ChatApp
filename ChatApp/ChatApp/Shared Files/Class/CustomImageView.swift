@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomImageView: UIImageView {
-  init(image: UIImage? = nil, width: CGFloat? = nil, height: CGFloat? = nil, cornerRadius: CGFloat = 0) {
+  init(image: UIImage? = nil, width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: UIColor? = nil, cornerRadius: CGFloat = 0) {
     super.init(frame: .zero)
     contentMode = .scaleAspectFit
     layer.cornerRadius = cornerRadius

@@ -12,6 +12,7 @@ class ConversationViewController: UIViewController {
   // MARK: - Properties
   private var user: User
   private let tableView = UITableView()
+  private let reuseIdentifier = "ConversationCell"
   
   // MARK: - Lifecycle
   init(user: User) {
@@ -34,7 +35,9 @@ class ConversationViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.rowHeight = 80
-    tableView.backgroundColor = .systemRed
+    tableView.backgroundColor = .systemBackground
+    tableView.register(ConversationCell.self, forCellReuseIdentifier: reuseIdentifier)
+    tableView.tableFooterView = UIView() // Empty space add nothing.
   }
   
   private func configureUI() {
@@ -77,6 +80,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ConversationCell
+    return cell
   }
 }
