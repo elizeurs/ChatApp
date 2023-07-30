@@ -67,7 +67,7 @@ class ConversationViewController: UIViewController {
   }
   
   @objc func handleNewChat() {
-    let controller = NewChatViewController()
+    let controller = NewChatViewController(user: user)
     let nav = UINavigationController(rootViewController: controller)
     present(nav, animated: true, completion: nil)
   }
