@@ -32,7 +32,7 @@ class ChatCell: UICollectionViewCell {
     tf.backgroundColor = .clear
     tf.isEditable = false
     tf.isScrollEnabled = false
-    tf.text = "Sample Data"
+//    tf.text = "Sample Data"
     tf.font = .systemFont(ofSize: 16)
     return tf
   }()
@@ -74,8 +74,10 @@ class ChatCell: UICollectionViewCell {
   }
   
   // MARK: - Helpers
-  func configure() {
+  func configure(text: String) {
     bubbleLeftAnchor.isActive = true
     dateLeftAnchor.isActive = true
+    
+    textView.text = text
   }
 }
