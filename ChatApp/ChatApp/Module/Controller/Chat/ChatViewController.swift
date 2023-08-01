@@ -17,6 +17,12 @@ class ChatViewController: UICollectionViewController {
     "Just want to add more text for testing or whatever and that's it for this lesson."
   ]
   
+  private lazy var customInputView: CustomInputView = {
+    let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+    let iv = CustomInputView(frame: frame)
+    return iv
+  }()
+  
   // MARK: - Lifecycle
   
   init() {
@@ -30,6 +36,14 @@ class ChatViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+  }
+  
+  override var inputAccessoryView: UIView? {
+    get { return customInputView }
+  }
+  
+  override var canBecomeFirstResponder: Bool {
+    return true
   }
   
   // MARK: - Helpers
