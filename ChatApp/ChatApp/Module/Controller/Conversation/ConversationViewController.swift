@@ -83,4 +83,9 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ConversationCell
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let controller = ChatViewController()
+    navigationController?.pushViewController(controller, animated: true)
+  }
 }
