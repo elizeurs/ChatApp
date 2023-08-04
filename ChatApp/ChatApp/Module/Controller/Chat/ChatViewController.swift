@@ -24,9 +24,12 @@ class ChatViewController: UICollectionViewController {
     return iv
   }()
   
+  private var otherUser: User
+  
   // MARK: - Lifecycle
   
-  init() {
+  init(otherUser: User) {
+    self.otherUser = otherUser
     super.init(collectionViewLayout: UICollectionViewFlowLayout())
   }
   
@@ -50,6 +53,7 @@ class ChatViewController: UICollectionViewController {
   // MARK: - Helpers
   
   private func configureUI() {
+    title = otherUser.fullname
     collectionView.backgroundColor = .white
     
     collectionView.register(ChatCell.self, forCellWithReuseIdentifier: reuseIdentifier)

@@ -13,6 +13,7 @@
 		751B02E52A7486F300E07433 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B02E42A7486F300E07433 /* SplashVC.swift */; };
 		751DDEBE2A78263A0063C44A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DDEBD2A78263A0063C44A /* ChatViewController.swift */; };
 		751DDEC02A78282B0063C44A /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DDEBF2A78282B0063C44A /* ChatCell.swift */; };
+		751E81822A7D855B007F26F3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E81812A7D855B007F26F3 /* UserViewModel.swift */; };
 		752677202A69941B00E4B709 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526771F2A69941B00E4B709 /* Buttons.swift */; };
 		752677222A69C70600E4B709 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752677212A69C70600E4B709 /* LoginViewModel.swift */; };
 		754D97FF2A75BAA5007C0DFE /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */; };
@@ -57,6 +58,7 @@
 		751B02E42A7486F300E07433 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		751DDEBD2A78263A0063C44A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		751DDEBF2A78282B0063C44A /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		751E81812A7D855B007F26F3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7526771F2A69941B00E4B709 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		752677212A69C70600E4B709 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				751B02E02A7449ED00E07433 /* User.swift */,
+				751E81812A7D855B007F26F3 /* UserViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				75AEA3312A6DCB1800808B4A /* CustomLabel.swift in Sources */,
 				751DDEC02A78282B0063C44A /* ChatCell.swift in Sources */,
 				75C868ED2A7085140093F977 /* ConversationViewController.swift in Sources */,
+				751E81822A7D855B007F26F3 /* UserViewModel.swift in Sources */,
 				75D24FC82A79B055004F01C1 /* CustomInputView.swift in Sources */,
 				75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */,
 				75C558112A6EDA1600CE26DA /* AuthServices.swift in Sources */,

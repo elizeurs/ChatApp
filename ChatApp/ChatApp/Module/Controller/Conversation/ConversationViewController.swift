@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 
 class ConversationViewController: UIViewController {
+  
   // MARK: - Properties
   private var user: User
   private let tableView = UITableView()
@@ -67,9 +68,15 @@ class ConversationViewController: UIViewController {
   }
   
   @objc func handleNewChat() {
-    let controller = NewChatViewController(user: user)
+    let controller = NewChatViewController()
+    controller.delegate = self
     let nav = UINavigationController(rootViewController: controller)
     present(nav, animated: true, completion: nil)
+  }
+  
+  private func openChat(user: User) {
+    let controller = ChatViewController(otherUser: user)
+    navigationController?.pushViewController(controller, animated: true)
   }
 }
 
@@ -85,7 +92,16 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let controller = ChatViewController()
-    navigationController?.pushViewController(controller, animated: true)
+
+  }
+}
+
+// MARK: - NewChatViewControllerDelegate
+
+extension ConversationViewController: NewChatViewControllerDelegate {
+  func controller(_ vc: NewChatViewController, wantToChatWithUser otherUser: User) {
+    vc.dismiss(animated: true, completion: nil)
+    print(otherUser.fullname)
+    openChat(user: otherUser)
   }
 }
