@@ -24,11 +24,13 @@ class ChatViewController: UICollectionViewController {
     return iv
   }()
   
+  private var currentUser: User
   private var otherUser: User
   
   // MARK: - Lifecycle
   
-  init(otherUser: User) {
+  init(currentUser: User, otherUser: User) {
+    self.currentUser = currentUser
     self.otherUser = otherUser
     super.init(collectionViewLayout: UICollectionViewFlowLayout())
   }
@@ -96,12 +98,15 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-// MARK: - CustomInpu
+// MARK: - CustomInputViewDelegate
 
 extension ChatViewController: CustomInputViewDelegate {
   func inputView(_ view: CustomInputView, wantToUploadMessage message: String) {
     print(message)
-    messages.append(message)
+    MessageServices.uploadMessage(message: message, currentUser: currentUser, otherUser: otherUser) { _ in
+      //
+    }
+    
     view.clearTextView()
     collectionView.reloadData()
   }
