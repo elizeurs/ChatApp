@@ -49,6 +49,7 @@
 		75EA902C2A673456009D10AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902A2A673456009D10AB /* Main.storyboard */; };
 		75EA902E2A673459009D10AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902D2A673459009D10AB /* Assets.xcassets */; };
 		75EA90312A673459009D10AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902F2A673459009D10AB /* LaunchScreen.storyboard */; };
+		75EE6AFE2A7EC0B90032B8E3 /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		75EA902D2A673459009D10AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75EA90302A673459009D10AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75EA90322A673459009D10AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 				75C558102A6EDA1600CE26DA /* AuthServices.swift */,
 				75C558152A6F3BE500CE26DA /* FileUploader.swift */,
 				751B02E22A744BFB00E07433 /* UserServices.swift */,
+				75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
 				75C558162A6F3BE500CE26DA /* FileUploader.swift in Sources */,
 				75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */,
+				75EE6AFE2A7EC0B90032B8E3 /* MessageServices.swift in Sources */,
 				75C9599E2A71C998004B162B /* LoginGoogle.swift in Sources */,
 				75A438652A716B3400D4D844 /* VC.swift in Sources */,
 				751B02E12A7449ED00E07433 /* User.swift in Sources */,
