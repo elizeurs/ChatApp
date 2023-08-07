@@ -11,11 +11,13 @@ import UIKit
 class ChatViewController: UICollectionViewController {
   // MARK: - Properties
   private let reuseIdentifier = "ChatCell"
-  private var messages: [String] = [
-    "Here's some sample data",
-    "This is the second line with more than one line",
-    "Just want to add more text for testing or whatever and that's it for this lesson."
-  ]
+  private var messages: [Message] = []
+  
+//  private var messages: [String] = [
+//    "Here's some sample data",
+//    "This is the second line with more than one line",
+//    "Just want to add more text for testing or whatever and that's it for this lesson."
+//  ]
   
   private lazy var customInputView: CustomInputView = {
     let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
@@ -42,6 +44,7 @@ class ChatViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    fetchMessages()
   }
   
   override var inputAccessoryView: UIView? {
@@ -60,6 +63,13 @@ class ChatViewController: UICollectionViewController {
     
     collectionView.register(ChatCell.self, forCellWithReuseIdentifier: reuseIdentifier)
   }
+  
+  private func fetchMessages() {
+    MessageServices.fetchMessages(otherUser: otherUser) { messages in
+      self.messages = messages
+      print(messages)
+    }
+  }
 }
 
 extension ChatViewController {
@@ -69,8 +79,8 @@ extension ChatViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ChatCell
-    let text = messages[indexPath.row]
-    cell.configure(text: text)
+//    let text = messages[indexPath.row]
+//    cell.configure(text: text)
     return cell
     
 //    return UICollectionViewCell()
@@ -87,8 +97,8 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
     let cell = ChatCell(frame: frame)
-    let text = messages[indexPath.row]
-    cell.configure(text: text)
+//    let text = messages[indexPath.row]
+//    cell.configure(text: text)
     cell.layoutIfNeeded()
     
     let targetSize = CGSize(width: view.frame.width, height: 1000)
