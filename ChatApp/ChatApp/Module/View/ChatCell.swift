@@ -11,6 +11,12 @@ class ChatCell: UICollectionViewCell {
   
   // MARK: - Properties
   
+  var viewModel: MessageViewModel? {
+    didSet {
+      configure()
+    }
+  }
+  
   private let profileImageView = CustomImageView(width: 30, height: 30, backgroundColor: .lightGray, cornerRadius: 15)
   
   private let dateLabel = CustomLabel(text: "10/10/2020")
@@ -74,10 +80,27 @@ class ChatCell: UICollectionViewCell {
   }
   
   // MARK: - Helpers
-  func configure(text: String) {
-    bubbleLeftAnchor.isActive = true
-    dateLeftAnchor.isActive = true
+  func configure() {
+    guard let viewModel = viewModel else { return }
+    bubbleContainer.backgroundColor = viewModel.messageBackgroundColor
+    textView.text  = viewModel.messageText
+    textView.textColor = viewModel.messageColor
     
-    textView.text = text
+    bubbleRightAnchor.isActive = viewModel.rightAnchorActive
+    dateRightAnchor.isActive = viewModel.rightAnchorActive
+    
+    bubbleLeftAnchor.isActive = viewModel.leftAnchorActive
+    dateLeftAnchor.isActive = viewModel.leftAnchorActive
+    
+    profileImageView.sd_setImage(with: viewModel.profileImageURL)
+    profileImageView.isHidden = viewModel.shouldHideProfileImage
+    
+    guard let timestampString = viewModel.timestampString else { return }
+    dateLabel.text = timestampString
+    
+//    bubbleLeftAnchor.isActive = true
+//    dateLeftAnchor.isActive = true
+//
+//    textView.text = text
   }
 }
