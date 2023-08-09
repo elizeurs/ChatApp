@@ -19,7 +19,7 @@ class ChatCell: UICollectionViewCell {
   
   private let profileImageView = CustomImageView(width: 30, height: 30, backgroundColor: .lightGray, cornerRadius: 15)
   
-  private let dateLabel = CustomLabel(text: "10/10/2020")
+  private let dateLabel = CustomLabel(text: "10/10/2020", labelFont: .systemFont(ofSize: 12), labelColor: .lightGray)
   
   private let bubbleContainer: UIView = {
     let view = UIView()
