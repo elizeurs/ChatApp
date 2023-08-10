@@ -15,6 +15,14 @@ class ConversationViewController: UIViewController {
   private let tableView = UITableView()
   private let reuseIdentifier = "ConversationCell"
   
+  private var conversations: [Message] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  
+  private var conversationDictionary = [String: Message]()
+  
   // MARK: - Lifecycle
   init(user: User) {
     self.user = user
@@ -29,6 +37,7 @@ class ConversationViewController: UIViewController {
     super.viewDidLoad()
     configureUI()
     configureTableView()
+    fetchConversations()
   }
   
   // MARK: - Helpers
@@ -57,6 +66,18 @@ class ConversationViewController: UIViewController {
 
   }
   
+  private func fetchConversations() {
+    MessageServices.fetchRecentMessages { conversations in
+      conversations.forEach { conversation in
+        self.conversationDictionary[conversation.chatPartnerID] = conversation
+      }
+      
+      self.conversations = Array(self.conversationDictionary.values)
+      
+//      print("Conversations \(conversations)")
+    }
+  }
+  
   @objc func handleLogout() {
     do {
       try Auth.auth().signOut()
@@ -83,16 +104,24 @@ class ConversationViewController: UIViewController {
 // MARK: - TableView
 extension ConversationViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return conversations.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ConversationCell
+    let conversation = conversations[indexPath.row]
+    cell.viewModel = MessageViewModel(message: conversation)
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+    let conversation = conversations[indexPath.row]
+    
+    showLoader(true)
+    UserServices.fetchUser(uid: conversation.chatPartnerID) { [self] otherUser in
+      showLoader(false)
+      openChat(currentUser: user, otherUser: otherUser)
+    }
   }
 }
 
