@@ -119,12 +119,14 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
 
 extension ChatViewController: CustomInputViewDelegate {
   func inputView(_ view: CustomInputView, wantToUploadMessage message: String) {
-    print(message)
-    MessageServices.uploadMessage(message: message, currentUser: currentUser, otherUser: otherUser) { _ in
-      //
+    MessageServices.FetchSingleRecentMsg(otherUser: otherUser) { [self] unReadCount in
+      //      print(message)
+      MessageServices.uploadMessage(message: message, currentUser: currentUser, otherUser: otherUser, unReadCount: unReadCount + 1) { _ in
+        
+        collectionView.reloadData()
+      }
     }
     
     view.clearTextView()
-    collectionView.reloadData()
   }
 }
