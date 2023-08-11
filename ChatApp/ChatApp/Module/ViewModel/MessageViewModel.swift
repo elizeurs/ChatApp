@@ -15,6 +15,9 @@ struct MessageViewModel {
   var messageBackgroundColor: UIColor { return message.isFromCurrentUser ? #colorLiteral(red: 0.4800121784, green: 0.8494915962, blue: 0.5058159828, alpha: 1) : #colorLiteral(red: 0.9245408177, green: 0.9278380275, blue: 0.9309870005, alpha: 1) }
   var messageColor: UIColor { return message.isFromCurrentUser ? .white : .black }
   
+  var unReadCount: Int { return message.new_msg }
+  var shouldHideUnreadLabel: Bool { return message.new_msg == 0 }
+  
   var fullname: String { return message.fullname }
   var username: String { return message.username }
   

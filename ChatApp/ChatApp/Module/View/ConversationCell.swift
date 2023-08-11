@@ -78,5 +78,8 @@ class ConversationCell: UITableViewCell {
     self.fullname.text = viewModel.fullname
     self.recentMessage.text = viewModel.messageText
     self.dateLabel.text = viewModel.timestampString
+    
+    self.unReadMsgLabel.text = "\(viewModel.unReadCount)"
+    self.unReadMsgLabel.isHidden = viewModel.shouldHideUnreadLabel
   }
 }

@@ -25,8 +25,17 @@ class ConversationViewController: UIViewController {
     label.layer.cornerRadius = 20
     label.textAlignment = .center
     label.clipsToBounds = true
+    label.isHidden = true
     return label
   }()
+  
+  private var unReadCount: Int = 0 {
+    didSet {
+      DispatchQueue.main.async {
+        self.unReadMsgLabel.isHidden = self.unReadCount == 0
+      }
+    }
+  }
   
   private var conversations: [Message] = [] {
     didSet {
@@ -83,13 +92,22 @@ class ConversationViewController: UIViewController {
   }
   
   private func fetchConversations() {
-    MessageServices.fetchRecentMessages { conversations in
+    MessageServices.fetchRecentMessages { [self] conversations in
       conversations.forEach { conversation in
         self.conversationDictionary[conversation.chatPartnerID] = conversation
       }
       
       self.conversations = Array(self.conversationDictionary.values)
       
+      unReadCount = 0
+      
+      self.conversations.forEach { msg in
+        unReadCount = unReadCount + msg.new_msg
+      }
+      
+      unReadMsgLabel.text = "\(unReadCount)"
+      // add a number badge to the app icon 
+      UIApplication.shared.applicationIconBadgeNumber = unReadCount
 //      print("Conversations \(conversations)")
     }
   }
