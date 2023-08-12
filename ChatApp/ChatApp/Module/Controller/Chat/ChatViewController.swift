@@ -45,6 +45,15 @@ class ChatViewController: UICollectionViewController {
     super.viewDidLoad()
     configureUI()
     fetchMessages()
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      self.markReadAllMsg()
+    }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    markReadAllMsg()
   }
   
   override var inputAccessoryView: UIView? {
@@ -70,6 +79,10 @@ class ChatViewController: UICollectionViewController {
       self.collectionView.reloadData()
 //      print(messages)
     }
+  }
+  
+  private func markReadAllMsg() {
+    MessageServices.markReadAllMsg(otherUser: otherUser)
   }
 }
 

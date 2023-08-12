@@ -26,7 +26,7 @@ class ConversationCell: UITableViewCell {
   private let unReadMsgLabel: UILabel = {
     let label = UILabel()
     label.text = "7"
-    label.font = .boldSystemFont(ofSize: 18)
+//    label.font = .boldSystemFont(ofSize: 18)
     label.textColor = .white
     label.backgroundColor = .systemRed
     label.setDimensions(height: 30, width: 30)

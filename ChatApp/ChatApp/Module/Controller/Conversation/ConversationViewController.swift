@@ -106,7 +106,7 @@ class ConversationViewController: UIViewController {
       }
       
       unReadMsgLabel.text = "\(unReadCount)"
-      // add a number badge to the app icon 
+      // add a number badge to the app icon | visible only on real device.
       UIApplication.shared.applicationIconBadgeNumber = unReadCount
 //      print("Conversations \(conversations)")
     }
