@@ -84,6 +84,14 @@ class ChatViewController: UICollectionViewController {
         return stringDateValue ?? ""
       }
       
+      self.messages.removeAll()
+      
+      let sortedKeys = groupMessages.keys.sorted(by: {$0 < $1})
+      sortedKeys.forEach { key in
+        let values = groupMessages[key]
+        self.messages.append(values ?? [])
+      }
+      
       self.collectionView.reloadData()
 //      print(messages)
     }
@@ -95,13 +103,17 @@ class ChatViewController: UICollectionViewController {
 }
 
 extension ChatViewController {
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return messages.count
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return messages[section].count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ChatCell
-    let message = messages[indexPath.row]
+    let message = messages[indexPath.section][indexPath.row]
     cell.viewModel = MessageViewModel(message: message)
     
 //    let text = messages[indexPath.row]
@@ -122,7 +134,7 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
     let cell = ChatCell(frame: frame)
-    let message = messages[indexPath.row]
+    let message = messages[indexPath.section][indexPath.row]
     cell.viewModel = MessageViewModel(message: message)
     
 //    let text = messages[indexPath.row]
