@@ -44,6 +44,7 @@
 		75D24FC82A79B055004F01C1 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D24FC72A79B055004F01C1 /* CustomInputView.swift */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
+		75EA65BB2A8976F7001C409D /* ChatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA65BA2A8976F7001C409D /* ChatHeader.swift */; };
 		75EA90252A673456009D10AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90242A673456009D10AB /* AppDelegate.swift */; };
 		75EA90272A673456009D10AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90262A673456009D10AB /* SceneDelegate.swift */; };
 		75EA90292A673456009D10AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90282A673456009D10AB /* ViewController.swift */; };
@@ -82,6 +83,7 @@
 		75D24FC72A79B055004F01C1 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		75DBEE092A673B1E00A83291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		75EA65BA2A8976F7001C409D /* ChatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeader.swift; sourceTree = "<group>"; };
 		75EA90212A673456009D10AB /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA90242A673456009D10AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75EA90262A673456009D10AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				75A5F3F02A77181C005AACFE /* UserCell.swift */,
 				751DDEBF2A78282B0063C44A /* ChatCell.swift */,
 				75D24FC72A79B055004F01C1 /* CustomInputView.swift */,
+				75EA65BA2A8976F7001C409D /* ChatHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
 				75C558162A6F3BE500CE26DA /* FileUploader.swift in Sources */,
+				75EA65BB2A8976F7001C409D /* ChatHeader.swift in Sources */,
 				75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */,
 				75EE6AFE2A7EC0B90032B8E3 /* MessageServices.swift in Sources */,
 				75C9599E2A71C998004B162B /* LoginGoogle.swift in Sources */,
