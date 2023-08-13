@@ -30,4 +30,12 @@ extension UIViewController {
     
     present(alert, animated: true, completion: nil)
   }
+  
+  func stringValue(forDate date: Date) -> String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd"
+    return dateFormatter.string(from: date)
+  }
 }
+
+

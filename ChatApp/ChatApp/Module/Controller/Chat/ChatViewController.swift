@@ -11,7 +11,8 @@ import UIKit
 class ChatViewController: UICollectionViewController {
   // MARK: - Properties
   private let reuseIdentifier = "ChatCell"
-  private var messages: [Message] = []
+  private var messages = [[Message]]()
+//  private var messages: [Message] = []
   
 //  private var messages: [String] = [
 //    "Here's some sample data",
@@ -75,7 +76,14 @@ class ChatViewController: UICollectionViewController {
   
   private func fetchMessages() {
     MessageServices.fetchMessages(otherUser: otherUser) { messages in
-      self.messages = messages
+//      self.messages = messages
+      
+      let groupMessages = Dictionary(grouping: messages) { (element) -> String in
+        let dateValue = element.timestamp.dateValue()
+        let stringDateValue = self.stringValue(forDate: dateValue)
+        return stringDateValue ?? ""
+      }
+      
       self.collectionView.reloadData()
 //      print(messages)
     }
