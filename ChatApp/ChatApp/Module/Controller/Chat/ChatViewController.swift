@@ -45,6 +45,8 @@ class ChatViewController: UICollectionViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: - View did load
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
