@@ -75,6 +75,14 @@ class ChatViewController: UICollectionViewController {
     collectionView.backgroundColor = .white
     
     collectionView.register(ChatCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    
+    // hide keyboard, when scrolling.
+    collectionView.alwaysBounceVertical = true
+    collectionView.keyboardDismissMode = .onDrag
+    
+    // pin date header on top of the screen.
+    let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+    layout?.sectionHeadersPinToVisibleBounds = true
   }
   
   private func fetchMessages() {
@@ -87,6 +95,7 @@ class ChatViewController: UICollectionViewController {
         return stringDateValue ?? ""
       }
       
+      // to avoid duplicate
       self.messages.removeAll()
       
       let sortedKeys = groupMessages.keys.sorted(by: {$0 < $1})
@@ -96,6 +105,8 @@ class ChatViewController: UICollectionViewController {
       }
       
       self.collectionView.reloadData()
+      //scroll to the bottom
+      self.collectionView.scrollToLastItem()
 //      print(messages)
     }
   }
