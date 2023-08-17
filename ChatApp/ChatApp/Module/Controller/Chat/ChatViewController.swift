@@ -28,6 +28,24 @@ class ChatViewController: UICollectionViewController {
     return iv
   }()
   
+  private lazy var attachAlert: UIAlertController = {
+    let alert = UIAlertController(title: "Attach File", message: "Select the button you want to attach from", preferredStyle: .actionSheet)
+    alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+      self.handleCamera()
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+      self.handleGallery()
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Location", style: .default, handler: { _ in
+      print("location")
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    return alert
+  }()
+  
   private var currentUser: User
   private var otherUser: User
   
@@ -186,6 +204,10 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - CustomInputViewDelegate
 
 extension ChatViewController: CustomInputViewDelegate {
+  func inputViewForAttach(_ view: CustomInputView) {
+    present(attachAlert, animated: true)
+  }
+  
   func inputView(_ view: CustomInputView, wantToUploadMessage message: String) {
     MessageServices.FetchSingleRecentMsg(otherUser: otherUser) { [self] unReadCount in
       //      print(message)
@@ -196,5 +218,15 @@ extension ChatViewController: CustomInputViewDelegate {
     }
     
     view.clearTextView()
+  }
+}
+
+extension ChatViewController {
+  @objc func handleCamera() {
+    print("Camera")
+  }
+  
+  @objc func handleGallery() {
+    print("Gallery")
   }
 }

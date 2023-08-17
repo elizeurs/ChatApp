@@ -10,6 +10,7 @@ import UIKit
 
 protocol CustomInputViewDelegate: AnyObject {
   func inputView(_ view: CustomInputView, wantToUploadMessage message: String)
+  func inputViewForAttach(_ view: CustomInputView)
 }
 
 class CustomInputView: UIView {
@@ -107,7 +108,7 @@ class CustomInputView: UIView {
   }
   
   @objc func handleAttachButton() {
-    
+    delegate?.inputViewForAttach(self)
   }
   
   @objc func handleRecordButton() {
