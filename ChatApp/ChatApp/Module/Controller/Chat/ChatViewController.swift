@@ -28,6 +28,13 @@ class ChatViewController: UICollectionViewController {
     return iv
   }()
   
+  lazy var imagePicker: UIImagePickerController = {
+    let picker = UIImagePickerController()
+    picker.allowsEditing = true
+    picker.delegate = self
+    return picker
+  }()
+  
   private lazy var attachAlert: UIAlertController = {
     let alert = UIAlertController(title: "Attach File", message: "Select the button you want to attach from", preferredStyle: .actionSheet)
     alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
@@ -218,15 +225,5 @@ extension ChatViewController: CustomInputViewDelegate {
     }
     
     view.clearTextView()
-  }
-}
-
-extension ChatViewController {
-  @objc func handleCamera() {
-    print("Camera")
-  }
-  
-  @objc func handleGallery() {
-    print("Gallery")
   }
 }

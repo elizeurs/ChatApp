@@ -16,6 +16,7 @@
 		751E81822A7D855B007F26F3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E81812A7D855B007F26F3 /* UserViewModel.swift */; };
 		752677202A69941B00E4B709 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526771F2A69941B00E4B709 /* Buttons.swift */; };
 		752677222A69C70600E4B709 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752677212A69C70600E4B709 /* LoginViewModel.swift */; };
+		75474B8B2A8FE87500E76BE8 /* ExtensionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */; };
 		754D97FF2A75BAA5007C0DFE /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */; };
 		7588859D2A81AD8300B86CC3 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588859C2A81AD8300B86CC3 /* MessageViewModel.swift */; };
 		75A438652A716B3400D4D844 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A438642A716B3400D4D844 /* VC.swift */; };
@@ -66,6 +67,7 @@
 		751E81812A7D855B007F26F3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7526771F2A69941B00E4B709 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		752677212A69C70600E4B709 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionChatViewController.swift; sourceTree = "<group>"; };
 		754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		7588859C2A81AD8300B86CC3 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		75A438642A716B3400D4D844 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				751DDEBD2A78263A0063C44A /* ChatViewController.swift */,
+				75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75474B8B2A8FE87500E76BE8 /* ExtensionChatViewController.swift in Sources */,
 				752677202A69941B00E4B709 /* Buttons.swift in Sources */,
 				751B02E52A7486F300E07433 /* SplashVC.swift in Sources */,
 				75AEA3312A6DCB1800808B4A /* CustomLabel.swift in Sources */,
