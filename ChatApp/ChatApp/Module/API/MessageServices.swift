@@ -34,7 +34,7 @@ struct MessageServices {
     }
   }
   
-  static func uploadMessage(message: String, currentUser: User, otherUser: User, unReadCount: Int, completion: ((Error?) -> Void)?) {
+  static func uploadMessage(message: String = "", imageURL: String = "", currentUser: User, otherUser: User, unReadCount: Int, completion: ((Error?) -> Void)?) {
     let dataFrom: [String: Any] = [
       "text": message,
       "fromID": currentUser.uid,
@@ -45,7 +45,8 @@ struct MessageServices {
       "fullname": otherUser.fullname,
       "profileImageURL": otherUser.profileImageURL,
       
-      "new_msg": 0
+      "new_msg": 0,
+      "imageURL": imageURL
     ]
     
     let dataTo: [String: Any] = [

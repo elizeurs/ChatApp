@@ -53,8 +53,8 @@ class ChatViewController: UICollectionViewController {
     return alert
   }()
   
-  private var currentUser: User
-  private var otherUser: User
+  var currentUser: User
+  var otherUser: User
   
   // MARK: - Lifecycle
   
