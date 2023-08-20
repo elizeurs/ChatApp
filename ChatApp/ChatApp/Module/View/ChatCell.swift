@@ -43,6 +43,12 @@ class ChatCell: UICollectionViewCell {
     return tf
   }()
   
+  private let postImage: CustomImageView = {
+    let iv = CustomImageView()
+    iv.isHidden = true
+    return iv
+  }()
+  
   // MARK: - Lifecycle
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -72,6 +78,9 @@ class ChatCell: UICollectionViewCell {
     dateRightAnchor.isActive = false
     
     dateLabel.anchor(bottom: bottomAnchor)
+    
+    addSubview(postImage)
+    postImage.anchor(top: bubbleContainer.topAnchor, left: bubbleContainer.leftAnchor, bottom: bubbleContainer.bottomAnchor, right: bubbleContainer.rightAnchor, paddingTop: 4, paddingLeft: 12, paddingBottom: 4, paddingRight: 12)
   }
   
   
@@ -97,6 +106,14 @@ class ChatCell: UICollectionViewCell {
     
     guard let timestampString = viewModel.timestampString else { return }
     dateLabel.text = timestampString
+    
+    postImage.sd_setImage(with: viewModel.imageURL)
+    textView.isHidden = viewModel.isTextHidden
+    postImage.isHidden = viewModel.isImageHidden
+    
+    if !viewModel.isImageHidden {
+      postImage.setHeight(200)
+    }
     
 //    bubbleLeftAnchor.isActive = true
 //    dateLeftAnchor.isActive = true

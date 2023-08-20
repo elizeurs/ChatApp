@@ -27,6 +27,11 @@ struct MessageViewModel {
   
   var  profileImageURL: URL? { return URL(string: message.profileImageURL) }
   
+  var imageURL: URL? { return URL(string: message.imageURL)}
+  
+  var isImageHidden: Bool { return message.imageURL == "" }
+  var isTextHidden: Bool { return message.imageURL != "" }
+  
   var timestampString: String? {
     let date = message.timestamp.dateValue()
     let dateFormatter = DateFormatter()
