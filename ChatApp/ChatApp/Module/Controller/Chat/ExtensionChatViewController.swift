@@ -10,14 +10,14 @@ import UIKit
 extension ChatViewController {
   @objc func handleCamera() {
     imagePicker.sourceType = .camera
-    imagePicker.mediaTypes = ["public.image"]
+    imagePicker.mediaTypes = ["public.image", "public.movie"]
     present(imagePicker, animated: true)
     print("Camera")
   }
   
   @objc func handleGallery() {
     imagePicker.sourceType = .savedPhotosAlbum
-    imagePicker.mediaTypes = ["public.image"]
+    imagePicker.mediaTypes = ["public.image", "public.movie"]
     present(imagePicker, animated: true)
     print("Gallery")
   }
@@ -34,6 +34,9 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
         // upload image
         guard let image = info[.editedImage] as? UIImage else { return }
         self.uploadImage(withImage: image)
+      } else {
+        guard let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL else { return }
+        self.uploadVideo(withVideoURL: videoURL)
       }
       
 //      print("mediaType \(mediaType)")
@@ -56,6 +59,24 @@ extension ChatViewController {
           }
         }
       }
+    }
+  }
+  
+  func uploadVideo(withVideoURL url: URL) {
+    showLoader(true)
+    FileUploader.uploadVideo(url: url) { videoURL in
+      MessageServices.FetchSingleRecentMsg(otherUser: self.otherUser) { unReadMsgCount in
+        MessageServices.uploadMessage(videoURL: videoURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unReadMsgCount) { error in
+          self.showLoader(false)
+          if let error = error {
+            print("error \(error.localizedDescription)")
+            return
+          }
+        }
+      }
+    } failure: { error in
+      print("error \(error.localizedDescription)")
+      return
     }
   }
 }
