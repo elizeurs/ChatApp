@@ -44,6 +44,8 @@
 		75D24FC62A79982A004F01C1 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D24FC52A79982A004F01C1 /* InputTextView.swift */; };
 		75D24FC82A79B055004F01C1 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D24FC72A79B055004F01C1 /* CustomInputView.swift */; };
 		75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F58B2A94006300BCAFF8 /* VideoPlayerVC.swift */; };
+		75D5F58F2A94200E00BCAFF8 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 75D5F58E2A94200E00BCAFF8 /* ImageSlideshow */; };
+		75D5F5912A94200E00BCAFF8 /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 75D5F5902A94200E00BCAFF8 /* ImageSlideshow/SDWebImage */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
 		75E6DB9F2A8AA19F00FB0AD9 /* CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */; };
@@ -110,11 +112,13 @@
 				75AEA3402A6DE12500808B4A /* FirebaseFirestoreSwift in Frameworks */,
 				75AEA33C2A6DE12500808B4A /* FirebaseDatabaseSwift in Frameworks */,
 				75AEA33E2A6DE12500808B4A /* FirebaseFirestore in Frameworks */,
+				75D5F58F2A94200E00BCAFF8 /* ImageSlideshow in Frameworks */,
 				75AEA3452A6DE24700808B4A /* SDWebImage in Frameworks */,
 				75AEA3482A6DE54F00808B4A /* JGProgressHUD in Frameworks */,
 				75AEA34D2A6DE5CA00808B4A /* GoogleSignInSwift in Frameworks */,
 				75AEA33A2A6DE12500808B4A /* FirebaseDatabase in Frameworks */,
 				75AEA3382A6DE12500808B4A /* FirebaseAuth in Frameworks */,
+				75D5F5912A94200E00BCAFF8 /* ImageSlideshow/SDWebImage in Frameworks */,
 				75AEA3422A6DE12500808B4A /* FirebaseStorage in Frameworks */,
 				75AEA34B2A6DE5CA00808B4A /* GoogleSignIn in Frameworks */,
 			);
@@ -317,6 +321,8 @@
 				75AEA3472A6DE54F00808B4A /* JGProgressHUD */,
 				75AEA34A2A6DE5CA00808B4A /* GoogleSignIn */,
 				75AEA34C2A6DE5CA00808B4A /* GoogleSignInSwift */,
+				75D5F58E2A94200E00BCAFF8 /* ImageSlideshow */,
+				75D5F5902A94200E00BCAFF8 /* ImageSlideshow/SDWebImage */,
 			);
 			productName = ChatApp;
 			productReference = 75EA90212A673456009D10AB /* ChatApp.app */;
@@ -351,6 +357,7 @@
 				75AEA3432A6DE24700808B4A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				75AEA3462A6DE54F00808B4A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				75AEA3492A6DE5CA00808B4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 75EA90222A673456009D10AB /* Products */;
 			projectDirPath = "";
@@ -666,6 +673,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zvonicek/ImageSlideshow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -718,6 +733,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75AEA3492A6DE5CA00808B4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		75D5F58E2A94200E00BCAFF8 /* ImageSlideshow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow;
+		};
+		75D5F5902A94200E00BCAFF8 /* ImageSlideshow/SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

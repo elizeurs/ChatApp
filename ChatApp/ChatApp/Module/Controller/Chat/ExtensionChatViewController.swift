@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 extension ChatViewController {
   @objc func handleCamera() {
@@ -88,5 +89,13 @@ extension ChatViewController: ChatCellDelegate {
     guard let videoURL = videoURL else { return }
     let controller = VideoPlayerVC(videoURL: videoURL)
     navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  func cell(wantToShowImage cell: ChatCell, imageURL: URL?) {
+    guard let imageURL = imageURL else { return }
+    
+    SDWebImageManager.shared.loadImage(with: imageURL, progress: nil) {image,_,_,_,_,_ in
+      guard let image = image else { return }
+    }
   }
 }
