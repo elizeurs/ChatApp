@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import ImageSlideshow
 
 extension ChatViewController {
   @objc func handleCamera() {
@@ -92,10 +93,26 @@ extension ChatViewController: ChatCellDelegate {
   }
   
   func cell(wantToShowImage cell: ChatCell, imageURL: URL?) {
+    let slideShow = ImageSlideshow()
+    
     guard let imageURL = imageURL else { return }
     
     SDWebImageManager.shared.loadImage(with: imageURL, progress: nil) {image,_,_,_,_,_ in
       guard let image = image else { return }
+      
+      slideShow.setImageInputs([
+        ImageSource(image: image),
+//        if you want a slideShow:
+//        ImageSource(image: image),
+//        ImageSource(image: image),
+//        ImageSource(image: image),
+//        ImageSource(image: image),
+      ])
+      
+      slideShow.delegate = self as? ImageSlideshowDelegate
+      
+      let controller = slideShow.presentFullScreenController(from: self)
+      controller.slideshow.activityIndicator = DefaultActivityIndicator()
     }
   }
 }
