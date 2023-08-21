@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol ChatCellDelegate: AnyObject {
+  func cell(wantToPlayVideo cell: ChatCell, videoURL: URL?)
+}
+
 class ChatCell: UICollectionViewCell {
   
   // MARK: - Properties
+  
+  weak var delegate: ChatCellDelegate?
   
   var viewModel: MessageViewModel? {
     didSet {
@@ -138,6 +144,7 @@ class ChatCell: UICollectionViewCell {
   }
   
   @objc func handleVideoButton() {
-    
+    guard let viewModel = viewModel else { return }
+    delegate?.cell(wantToPlayVideo: self, videoURL: viewModel.videoURL)
   }
 }

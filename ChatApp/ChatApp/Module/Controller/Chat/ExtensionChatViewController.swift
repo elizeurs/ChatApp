@@ -51,7 +51,7 @@ extension ChatViewController {
     showLoader(true)
     FileUploader.uploadImage(image: image) { imageURL in
       MessageServices.FetchSingleRecentMsg(otherUser: self.otherUser) { unreadMsgCount in
-        MessageServices.uploadMessage(imageURL: imageURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unreadMsgCount) { error in
+        MessageServices.uploadMessage(imageURL: imageURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unreadMsgCount + 1) { error in
           self.showLoader(false)
           if let error = error {
             print("error \(error.localizedDescription)")
@@ -66,7 +66,7 @@ extension ChatViewController {
     showLoader(true)
     FileUploader.uploadVideo(url: url) { videoURL in
       MessageServices.FetchSingleRecentMsg(otherUser: self.otherUser) { unReadMsgCount in
-        MessageServices.uploadMessage(videoURL: videoURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unReadMsgCount) { error in
+        MessageServices.uploadMessage(videoURL: videoURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unReadMsgCount + 1) { error in
           self.showLoader(false)
           if let error = error {
             print("error \(error.localizedDescription)")
@@ -78,5 +78,15 @@ extension ChatViewController {
       print("error \(error.localizedDescription)")
       return
     }
+  }
+}
+
+// MARK: - Chat Delegate
+
+extension ChatViewController: ChatCellDelegate {
+  func cell(wantToPlayVideo cell: ChatCell, videoURL: URL?) {
+    guard let videoURL = videoURL else { return }
+    let controller = VideoPlayerVC(videoURL: videoURL)
+    navigationController?.pushViewController(controller, animated: true)
   }
 }

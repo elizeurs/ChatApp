@@ -43,6 +43,7 @@
 		75C9599E2A71C998004B162B /* LoginGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C9599D2A71C998004B162B /* LoginGoogle.swift */; };
 		75D24FC62A79982A004F01C1 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D24FC52A79982A004F01C1 /* InputTextView.swift */; };
 		75D24FC82A79B055004F01C1 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D24FC72A79B055004F01C1 /* CustomInputView.swift */; };
+		75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F58B2A94006300BCAFF8 /* VideoPlayerVC.swift */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
 		75E6DB9F2A8AA19F00FB0AD9 /* CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */; };
@@ -84,6 +85,7 @@
 		75C9599D2A71C998004B162B /* LoginGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginGoogle.swift; sourceTree = "<group>"; };
 		75D24FC52A79982A004F01C1 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		75D24FC72A79B055004F01C1 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		75D5F58B2A94006300BCAFF8 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
 		75DBEE092A673B1E00A83291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViews.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				75C868EC2A7085140093F977 /* ConversationViewController.swift */,
 				754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */,
+				75D5F58B2A94006300BCAFF8 /* VideoPlayerVC.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				75A5F3F12A77181C005AACFE /* UserCell.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
+				75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */,
 				75C558162A6F3BE500CE26DA /* FileUploader.swift in Sources */,
 				75EA65BB2A8976F7001C409D /* ChatHeader.swift in Sources */,
 				75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */,
