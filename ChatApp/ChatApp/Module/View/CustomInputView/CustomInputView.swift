@@ -90,7 +90,7 @@ class CustomInputView: UIView {
     return button
   }()
   
-  private let timerLabel = CustomLabel(text: "00:00")
+  let timerLabel = CustomLabel(text: "00:00")
   
   lazy var recordStackView: UIStackView = {
     let sv = UIStackView(arrangedSubviews: [cancelButton, timerLabel, sendRecordButton])
@@ -99,6 +99,9 @@ class CustomInputView: UIView {
     sv.isHidden = true
     return sv
   }()
+  
+  var duration: CGFloat = 0.0
+  var timer: Timer!
   
   // MARK: - Lifecycle
   override init(frame: CGRect) {
@@ -150,6 +153,8 @@ class CustomInputView: UIView {
   @objc func handleRecordButton() {
     stackView.isHidden = true
     recordStackView.isHidden = false
+    
+    setTimer()
   }
   
   @objc func handleTextDidChange() {

@@ -19,6 +19,7 @@
 		75474B8B2A8FE87500E76BE8 /* ExtensionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */; };
 		754D97FF2A75BAA5007C0DFE /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */; };
 		755751E72A954C6C00EDE038 /* ExtensionCustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755751E62A954C6C00EDE038 /* ExtensionCustomInputView.swift */; };
+		755751E92A95631100EDE038 /* AKAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755751E82A95631100EDE038 /* AKAudioRecorder.swift */; };
 		7588859D2A81AD8300B86CC3 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588859C2A81AD8300B86CC3 /* MessageViewModel.swift */; };
 		75A438652A716B3400D4D844 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A438642A716B3400D4D844 /* VC.swift */; };
 		75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3EE2A76D666005AACFE /* ConversationCell.swift */; };
@@ -74,6 +75,7 @@
 		75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionChatViewController.swift; sourceTree = "<group>"; };
 		754D97FE2A75BAA4007C0DFE /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		755751E62A954C6C00EDE038 /* ExtensionCustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCustomInputView.swift; sourceTree = "<group>"; };
+		755751E82A95631100EDE038 /* AKAudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKAudioRecorder.swift; sourceTree = "<group>"; };
 		7588859C2A81AD8300B86CC3 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		75A438642A716B3400D4D844 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 		75A5F3EE2A76D666005AACFE /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		75EA903D2A6737EA009D10AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				755751E82A95631100EDE038 /* AKAudioRecorder.swift */,
 				751B02E02A7449ED00E07433 /* User.swift */,
 				75EE6AFF2A7F0A9D0032B8E3 /* Message.swift */,
 			);
@@ -418,6 +421,7 @@
 				751DDEBE2A78263A0063C44A /* ChatViewController.swift in Sources */,
 				75C558132A6F1FF000CE26DA /* Constants.swift in Sources */,
 				75A5F3F12A77181C005AACFE /* UserCell.swift in Sources */,
+				755751E92A95631100EDE038 /* AKAudioRecorder.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
 				75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */,

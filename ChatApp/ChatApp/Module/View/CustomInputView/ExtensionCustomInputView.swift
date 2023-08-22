@@ -16,4 +16,13 @@ extension CustomInputView {
   @objc func handleSendRecordButton() {
     
   }
+  
+  func setTimer() {
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+  }
+  
+  @objc func updateTimer() {
+    duration += 1
+    self.timerLabel.text = "\(duration)"
+  }
 }
