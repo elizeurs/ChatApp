@@ -36,8 +36,35 @@ struct FileUploader{
             }
         }
     }
+  
+  // MARK: - Uploading Audio
+  
+  static func uploadAudio(audioURL: URL, completion: @escaping(String) -> Void) {
+    let uid = Auth.auth().currentUser?.uid ?? "/profileImages/"
+    
+    let filename = NSUUID().uuidString
+    let ref = Storage.storage().reference(withPath: "/\(uid)/\(filename)")
+    
+    ref.putFile(from: audioURL, metadata: nil) { metadata, error in
+      if let error = error {
+        print(error.localizedDescription)
+        return
+      }
+      
+      ref.downloadURL { url, error in
+        if let error = error {
+          print(error.localizedDescription)
+          return
+        }
+        
+        guard let fileURL = url?.absoluteString else { return }
+        completion(fileURL)
+      }
+    }
+  }
     
     //MARK: - upload video
+  
     static func uploadVideo(url: URL,
                                       success : @escaping (String) -> Void,
                                       failure : @escaping (Error) -> Void) {

@@ -211,6 +211,7 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - CustomInputViewDelegate
 
 extension ChatViewController: CustomInputViewDelegate {
+  
   func inputViewForAttach(_ view: CustomInputView) {
     present(attachAlert, animated: true)
   }
@@ -220,10 +221,14 @@ extension ChatViewController: CustomInputViewDelegate {
       //      print(message)
       MessageServices.uploadMessage(message: message, currentUser: currentUser, otherUser: otherUser, unReadCount: unReadCount + 1) { _ in
         
-        collectionView.reloadData()
+        self.collectionView.reloadData()
       }
     }
     
     view.clearTextView()
+  }
+  
+  func inputViewForAudio(_ view: CustomInputView, audioURL: URL) {
+    //
   }
 }

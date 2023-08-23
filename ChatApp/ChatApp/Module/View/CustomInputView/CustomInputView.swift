@@ -11,6 +11,7 @@ import UIKit
 protocol CustomInputViewDelegate: AnyObject {
   func inputView(_ view: CustomInputView, wantToUploadMessage message: String)
   func inputViewForAttach(_ view: CustomInputView)
+  func inputViewForAudio(_ view: CustomInputView, audioURL: URL)
 }
 
 class CustomInputView: UIView {
@@ -22,7 +23,7 @@ class CustomInputView: UIView {
   lazy var inputTextView = InputTextView()
   
   private let postBackgroundColor: CustomImageView = {
-    let tap = UITapGestureRecognizer(target: self, action: #selector(handlePostButton))
+    let tap = UITapGestureRecognizer(target: CustomInputView.self, action: #selector(handlePostButton))
     let iv = CustomImageView(width: 40, height: 40, backgroundColor: .systemRed, cornerRadius: 20)
     iv.isUserInteractionEnabled = true
     iv.addGestureRecognizer(tap)
@@ -156,7 +157,8 @@ class CustomInputView: UIView {
     recordStackView.isHidden = false
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-      self.recorder.record()
+      self.recorder.myRecordings.removeAll() // delete all records before starting.
+      self.recorder.record() // we'll start recording voice
       self.setTimer()
     })
   }

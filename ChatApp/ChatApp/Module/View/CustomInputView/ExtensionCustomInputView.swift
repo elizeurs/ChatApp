@@ -17,6 +17,9 @@ extension CustomInputView {
     recorder.stopRecording()
     
     // TODO: - take the record audio file to upload
+    let name = recorder.getRecordings.last ?? ""
+    guard let audioURL = recorder.getAudioURL(name: name) else { return }
+    self.delegate?.inputViewForAudio(self, audioURL: audioURL)
     
     recordStackView.isHidden = true
     stackView.isHidden = false
