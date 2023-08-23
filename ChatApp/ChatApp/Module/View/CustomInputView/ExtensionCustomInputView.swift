@@ -14,7 +14,12 @@ extension CustomInputView {
   }
   
   @objc func handleSendRecordButton() {
+    recorder.stopRecording()
     
+    // TODO: - take the record audio file to upload
+    
+    recordStackView.isHidden = true
+    stackView.isHidden = false
   }
   
   func setTimer() {
@@ -22,7 +27,16 @@ extension CustomInputView {
   }
   
   @objc func updateTimer() {
-    duration += 1
-    self.timerLabel.text = "\(duration)"
+    if recorder.isRecording && !recorder.isPlaying {
+      duration += 1
+      self.timerLabel.text = duration.timeStringFormatter
+    } else {
+      timer.invalidate()
+      duration = 0
+      self.timerLabel.text = "00:00"
+    }
+
+    
+//    self.timerLabel.text = "\(duration)"
   }
 }

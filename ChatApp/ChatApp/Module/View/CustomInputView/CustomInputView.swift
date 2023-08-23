@@ -102,6 +102,7 @@ class CustomInputView: UIView {
   
   var duration: CGFloat = 0.0
   var timer: Timer!
+  var recorder = AKAudioRecorder.shared
   
   // MARK: - Lifecycle
   override init(frame: CGRect) {
@@ -123,7 +124,7 @@ class CustomInputView: UIView {
     dividerView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
     
     addSubview(recordStackView)
-    recordStackView.anchor(top: topAnchor, left: leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 12, paddingRight: 12)
+    recordStackView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 12, paddingRight: 12)
     
     NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidChange), name: InputTextView.textDidChangeNotification, object: nil)
   }
@@ -154,7 +155,10 @@ class CustomInputView: UIView {
     stackView.isHidden = true
     recordStackView.isHidden = false
     
-    setTimer()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+      self.recorder.record()
+      self.setTimer()
+    })
   }
   
   @objc func handleTextDidChange() {
