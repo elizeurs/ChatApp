@@ -29,10 +29,12 @@ struct MessageViewModel {
   
   var imageURL: URL? { return URL(string: message.imageURL)}
   var videoURL: URL? { return URL(string: message.videoURL)}
+  var audioURL: URL? { return URL(string: message.audioURL)}
   
   var isImageHidden: Bool { return message.imageURL == "" }
   var isTextHidden: Bool { return message.imageURL != "" }
   var isVideoHidden: Bool { return message.videoURL == "" }
+  var isAudioHidden: Bool { return message.audioURL == "" }
   
   var timestampString: String? {
     let date = message.timestamp.dateValue()

@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import ImageSlideshow
+import SwiftAudioPlayer
 
 extension ChatViewController {
   @objc func handleCamera() {
@@ -86,6 +87,7 @@ extension ChatViewController {
 // MARK: - Chat Delegate
 
 extension ChatViewController: ChatCellDelegate {
+  
   func cell(wantToPlayVideo cell: ChatCell, videoURL: URL?) {
     guard let videoURL = videoURL else { return }
     let controller = VideoPlayerVC(videoURL: videoURL)
@@ -113,6 +115,24 @@ extension ChatViewController: ChatCellDelegate {
       
       let controller = slideShow.presentFullScreenController(from: self)
       controller.slideshow.activityIndicator = DefaultActivityIndicator()
+    }
+  }
+  
+  func cell(wantToPlayAudio cell: ChatCell, audioURL: URL?, isPlaying: Bool) {
+    if isPlaying {
+      guard let audioURL = audioURL else { return }
+      
+      SAPlayer.shared.startRemoteAudio(withRemoteUrl: audioURL)
+      SAPlayer.shared.play()
+      
+      let _ = SAPlayer.Updates.PlayingStatus.subscribe { playingStatus in
+        print("playingStatus \(playingStatus)")
+        if playingStatus == .ended {
+          cell.resetAudioSettings()
+        }
+      }
+    } else {
+      SAPlayer.shared.stopStreamingRemoteAudio()
     }
   }
 }
