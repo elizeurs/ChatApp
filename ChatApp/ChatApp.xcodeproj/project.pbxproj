@@ -48,6 +48,7 @@
 		75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F58B2A94006300BCAFF8 /* VideoPlayerVC.swift */; };
 		75D5F58F2A94200E00BCAFF8 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 75D5F58E2A94200E00BCAFF8 /* ImageSlideshow */; };
 		75D5F5912A94200E00BCAFF8 /* ImageSlideshow/SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 75D5F5902A94200E00BCAFF8 /* ImageSlideshow/SDWebImage */; };
+		75DB2B832A97E97400BD9280 /* SwiftAudioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 75DB2B822A97E97400BD9280 /* SwiftAudioPlayer */; };
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
 		75E6DB9F2A8AA19F00FB0AD9 /* CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */; };
@@ -123,6 +124,7 @@
 				75AEA33A2A6DE12500808B4A /* FirebaseDatabase in Frameworks */,
 				75AEA3382A6DE12500808B4A /* FirebaseAuth in Frameworks */,
 				75D5F5912A94200E00BCAFF8 /* ImageSlideshow/SDWebImage in Frameworks */,
+				75DB2B832A97E97400BD9280 /* SwiftAudioPlayer in Frameworks */,
 				75AEA3422A6DE12500808B4A /* FirebaseStorage in Frameworks */,
 				75AEA34B2A6DE5CA00808B4A /* GoogleSignIn in Frameworks */,
 			);
@@ -337,6 +339,7 @@
 				75AEA34C2A6DE5CA00808B4A /* GoogleSignInSwift */,
 				75D5F58E2A94200E00BCAFF8 /* ImageSlideshow */,
 				75D5F5902A94200E00BCAFF8 /* ImageSlideshow/SDWebImage */,
+				75DB2B822A97E97400BD9280 /* SwiftAudioPlayer */,
 			);
 			productName = ChatApp;
 			productReference = 75EA90212A673456009D10AB /* ChatApp.app */;
@@ -372,6 +375,7 @@
 				75AEA3462A6DE54F00808B4A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				75AEA3492A6DE5CA00808B4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
+				75DB2B812A97E97400BD9280 /* XCRemoteSwiftPackageReference "SwiftAudioPlayer" */,
 			);
 			productRefGroup = 75EA90222A673456009D10AB /* Products */;
 			projectDirPath = "";
@@ -697,6 +701,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		75DB2B812A97E97400BD9280 /* XCRemoteSwiftPackageReference "SwiftAudioPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tanhakabir/SwiftAudioPlayer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -759,6 +771,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75D5F58D2A94200E00BCAFF8 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/SDWebImage;
+		};
+		75DB2B822A97E97400BD9280 /* SwiftAudioPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75DB2B812A97E97400BD9280 /* XCRemoteSwiftPackageReference "SwiftAudioPlayer" */;
+			productName = SwiftAudioPlayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
