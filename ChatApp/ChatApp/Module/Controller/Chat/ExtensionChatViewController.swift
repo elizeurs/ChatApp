@@ -24,6 +24,17 @@ extension ChatViewController {
     present(imagePicker, animated: true)
     print("Gallery")
   }
+  
+  @objc func handleCurrentLocation() {
+    FLocationManager.shared.start { info in
+      print("Lat \(info.latitude)")
+      print("Lng \(info.longitude)")
+    }
+  }
+  
+  @objc func handleGoogleMap() {
+    
+  }
 }
 
 // MARK: - UIImagePickerControllerDelegate

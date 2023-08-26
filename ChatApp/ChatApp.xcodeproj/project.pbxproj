@@ -59,6 +59,7 @@
 		75EA902C2A673456009D10AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902A2A673456009D10AB /* Main.storyboard */; };
 		75EA902E2A673459009D10AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902D2A673459009D10AB /* Assets.xcassets */; };
 		75EA90312A673459009D10AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EA902F2A673459009D10AB /* LaunchScreen.storyboard */; };
+		75EC6F702A9AAB0C00ECDDA0 /* FLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC6F6F2A9AAB0C00ECDDA0 /* FLocationManager.swift */; };
 		75EE6AFE2A7EC0B90032B8E3 /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */; };
 		75EE6B002A7F0A9D0032B8E3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE6AFF2A7F0A9D0032B8E3 /* Message.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		75EA90302A673459009D10AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75EA90322A673459009D10AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75EC6F6E2A9A9B5A00ECDDA0 /* Times Square.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Times Square.gpx"; sourceTree = "<group>"; };
+		75EC6F6F2A9AAB0C00ECDDA0 /* FLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLocationManager.swift; sourceTree = "<group>"; };
 		75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
 		75EE6AFF2A7F0A9D0032B8E3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +202,7 @@
 				75AEA3302A6DCB1800808B4A /* CustomLabel.swift */,
 				75AEA3322A6DCE5500808B4A /* CustomImageView.swift */,
 				75D24FC52A79982A004F01C1 /* InputTextView.swift */,
+				75EC6F6F2A9AAB0C00ECDDA0 /* FLocationManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				755751E92A95631100EDE038 /* AKAudioRecorder.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
+				75EC6F702A9AAB0C00ECDDA0 /* FLocationManager.swift in Sources */,
 				75D5F58C2A94006300BCAFF8 /* VideoPlayerVC.swift in Sources */,
 				75C558162A6F3BE500CE26DA /* FileUploader.swift in Sources */,
 				75EA65BB2A8976F7001C409D /* ChatHeader.swift in Sources */,
