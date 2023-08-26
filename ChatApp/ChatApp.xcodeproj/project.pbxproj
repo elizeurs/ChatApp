@@ -105,6 +105,7 @@
 		75EA902D2A673459009D10AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75EA90302A673459009D10AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75EA90322A673459009D10AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75EC6F6E2A9A9B5A00ECDDA0 /* Times Square.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Times Square.gpx"; sourceTree = "<group>"; };
 		75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
 		75EE6AFF2A7F0A9D0032B8E3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +233,7 @@
 		75EA90382A6737AE009D10AB /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				75EC6F6D2A9A9B2000ECDDA0 /* Fake Locations */,
 				75EA90242A673456009D10AB /* AppDelegate.swift */,
 				75EA90262A673456009D10AB /* SceneDelegate.swift */,
 				75AEA34E2A6DE7C100808B4A /* GoogleService-Info.plist */,
@@ -308,6 +310,14 @@
 				75EE6AFD2A7EC0B90032B8E3 /* MessageServices.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		75EC6F6D2A9A9B2000ECDDA0 /* Fake Locations */ = {
+			isa = PBXGroup;
+			children = (
+				75EC6F6E2A9A9B5A00ECDDA0 /* Times Square.gpx */,
+			);
+			path = "Fake Locations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
