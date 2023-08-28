@@ -11,6 +11,7 @@ protocol ChatCellDelegate: AnyObject {
   func cell(wantToPlayVideo cell: ChatCell, videoURL: URL?)
   func cell(wantToShowImage cell: ChatCell, imageURL: URL?)
   func cell(wantToPlayAudio cell: ChatCell, audioURL: URL?, isPlaying: Bool)
+  func cell(wantToOpenGoogleMap cell: ChatCell, locationURL: URL?)
 }
 
 class ChatCell: UICollectionViewCell {
@@ -83,6 +84,16 @@ class ChatCell: UICollectionViewCell {
     return button
   }()
   
+  private lazy var postLocation: UIButton = {
+    let button = UIButton(type: .system)
+    button.setImage(UIImage(systemName: "location.circle"), for: .normal)
+    button.tintColor = .white
+    button.isHidden = true
+    button.setTitle(" Google Map", for: .normal)
+    button.addTarget(self, action: #selector(handleLocationButton), for: .touchUpInside)
+    return button
+  }()
+  
   var isVoicePlaying: Bool = true
   
   // MARK: - Lifecycle
@@ -123,6 +134,9 @@ class ChatCell: UICollectionViewCell {
     
     addSubview(postAudio)
     postAudio.anchor(top: bubbleContainer.topAnchor, left: bubbleContainer.leftAnchor, bottom: bubbleContainer.bottomAnchor, right: bubbleContainer.rightAnchor, paddingTop: 4, paddingLeft: 12, paddingBottom: 4, paddingRight: 12)
+    
+    addSubview(postLocation)
+    postLocation.anchor(top: bubbleContainer.topAnchor, left: bubbleContainer.leftAnchor, bottom: bubbleContainer.bottomAnchor, right: bubbleContainer.rightAnchor, paddingTop: 4, paddingLeft: 12, paddingBottom: 4, paddingRight: 12)
   }
   
   
@@ -154,6 +168,7 @@ class ChatCell: UICollectionViewCell {
     postImage.isHidden = viewModel.isImageHidden
     postVideo.isHidden = viewModel.isVideoHidden
     postAudio.isHidden = viewModel.isAudioHidden
+    postLocation.isHidden = viewModel.isLocationHidden
     
     if !viewModel.isImageHidden {
       postImage.setHeight(200)
@@ -184,6 +199,11 @@ class ChatCell: UICollectionViewCell {
     let imageName = isVoicePlaying ? "play.fill" : "stop.fill"
     postAudio.setTitle(title, for: .normal)
     postAudio.setImage(UIImage(systemName: imageName), for: .normal)
+  }
+  
+  @objc func handleLocationButton() {
+    guard let viewModel = viewModel else { return }
+    delegate?.cell(wantToOpenGoogleMap: self, locationURL: viewModel.locationURL)
   }
   
   func resetAudioSettings() {

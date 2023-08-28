@@ -31,10 +31,17 @@ struct MessageViewModel {
   var videoURL: URL? { return URL(string: message.videoURL)}
   var audioURL: URL? { return URL(string: message.audioURL)}
   
+  var locationURL: URL? {
+    let encodedURL = message.locationURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    return URL(string: encodedURL ?? "")
+    
+  }
+  
   var isImageHidden: Bool { return message.imageURL == "" }
   var isTextHidden: Bool { return message.imageURL != "" }
   var isVideoHidden: Bool { return message.videoURL == "" }
   var isAudioHidden: Bool { return message.audioURL == "" }
+  var isLocationHidden: Bool { return message.locationURL == "" }
   
   var timestampString: String? {
     let date = message.timestamp.dateValue()

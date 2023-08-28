@@ -137,11 +137,11 @@ extension ChatViewController: ChatCellDelegate {
       
       slideShow.setImageInputs([
         ImageSource(image: image),
-//        if you want a slideShow:
-//        ImageSource(image: image),
-//        ImageSource(image: image),
-//        ImageSource(image: image),
-//        ImageSource(image: image),
+        //        if you want a slideShow:
+        //        ImageSource(image: image),
+        //        ImageSource(image: image),
+        //        ImageSource(image: image),
+        //        ImageSource(image: image),
       ])
       
       slideShow.delegate = self as? ImageSlideshowDelegate
@@ -166,6 +166,19 @@ extension ChatViewController: ChatCellDelegate {
       }
     } else {
       SAPlayer.shared.stopStreamingRemoteAudio()
+    }
+  }
+  
+  func cell(wantToOpenGoogleMap cell: ChatCell, locationURL: URL?) {
+    guard let googleURLApp = URL(string: "comgooglemaps://") else { return }
+    guard let locationURL = locationURL else { return }
+    
+    if UIApplication.shared.canOpenURL(googleURLApp) {
+      // here we have the app
+      UIApplication.shared.open(locationURL)
+    } else {
+      // we don't have the app
+      UIApplication.shared.open(locationURL, options: [:])
     }
   }
 }
