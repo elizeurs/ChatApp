@@ -27,15 +27,37 @@ extension ChatViewController {
   
   @objc func handleCurrentLocation() {
     FLocationManager.shared.start { info in
-      print("Lat \(info.latitude)")
-      print("Lng \(info.longitude)")
+      guard let lat = info.latitude else { return }
+      guard let lng = info.longitude else { return }
+      
+      self.uploadLocation(lat: "\(lat)", lng: "\(lng)")
+
+//      print("Lat \(info.latitude)")
+//      print("Lng \(info.longitude)")
     }
   }
   
   @objc func handleGoogleMap() {
     
   }
+  
+  func uploadLocation(lat: String, lng: String) {
+    let locationURL = "https://www.google.com/maps/dir/?api=1&destination=\(lat),\(lng)"
+    
+    self.showLoader(true)
+    MessageServices.FetchSingleRecentMsg(otherUser: otherUser) { unReadCount in
+      MessageServices.uploadMessage(locationURL: locationURL, currentUser: self.currentUser, otherUser: self.otherUser, unReadCount: unReadCount + 1) { error in
+        self.showLoader(false)
+        
+        if let error = error {
+          print("error \(error.localizedDescription)")
+          return
+        }
+      }
+    }
+  }
 }
+
 
 // MARK: - UIImagePickerControllerDelegate
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
