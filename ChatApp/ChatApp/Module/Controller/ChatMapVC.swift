@@ -8,13 +8,32 @@
 import UIKit
 import GoogleMaps
 
+protocol ChatMapVCDelegate: AnyObject {
+  func didTapLocation(lat: String, lng: String)
+}
+
 class ChatMapVC: UIViewController {
   
   // MARK: - Properties
   
+  weak var delegate: ChatMapVCDelegate?
+  
   private let mapView = GMSMapView()
   private var location: CLLocationCoordinate2D?
   private lazy var marker = GMSMarker()
+  
+  private lazy var sendLocationButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Send Location", for: .normal)
+    button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    button.tintColor = .white
+    button.backgroundColor = .red
+    button.setDimensions(height: 50, width: 150)
+    button.layer.cornerRadius = 15
+    button.clipsToBounds = true
+    button.addTarget(self, action: #selector(handleSendLocationButton), for: .touchUpInside)
+    return button
+  }()
   
   // MARK: - Lifecycle
   
@@ -33,6 +52,10 @@ class ChatMapVC: UIViewController {
     view.addSubview(mapView)
     view.backgroundColor = .white
     mapView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+    
+    view.addSubview(sendLocationButton)
+    sendLocationButton.centerX(inView: view)
+    sendLocationButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 20)
   }
   
   private func configureMapView() {
@@ -57,6 +80,12 @@ class ChatMapVC: UIViewController {
     marker.map = nil
     marker = GMSMarker(position: location)
     marker.map = mapView
+  }
+  
+  @objc func handleSendLocationButton() {
+    guard let lat = location?.latitude else { return }
+    guard let lng = location?.longitude else { return }
+    delegate?.didTapLocation(lat: "\(lat)", lng: "\(lng)")
   }
 
 }

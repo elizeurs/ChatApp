@@ -40,6 +40,7 @@ extension ChatViewController {
   
   @objc func handleGoogleMap() {
     let controller = ChatMapVC()
+    controller.delegate = self
     navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -57,6 +58,14 @@ extension ChatViewController {
         }
       }
     }
+  }
+}
+
+// MARK: - ChatMapVCDelegate
+extension ChatViewController: ChatMapVCDelegate {
+  func didTapLocation(lat: String, lng: String) {
+    navigationController?.popViewController(animated: true)
+    uploadLocation(lat: lat, lng: lng)
   }
 }
 
