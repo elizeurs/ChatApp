@@ -31,6 +31,7 @@ extension ChatViewController {
       guard let lng = info.longitude else { return }
       
       self.uploadLocation(lat: "\(lat)", lng: "\(lng)")
+      FLocationManager.shared.stop()
 
 //      print("Lat \(info.latitude)")
 //      print("Lng \(info.longitude)")
@@ -38,7 +39,8 @@ extension ChatViewController {
   }
   
   @objc func handleGoogleMap() {
-    
+    let controller = ChatMapVC()
+    navigationController?.pushViewController(controller, animated: true)
   }
   
   func uploadLocation(lat: String, lng: String) {

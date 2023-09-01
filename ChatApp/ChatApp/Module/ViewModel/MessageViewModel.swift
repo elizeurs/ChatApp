@@ -32,6 +32,7 @@ struct MessageViewModel {
   var audioURL: URL? { return URL(string: message.audioURL)}
   
   var locationURL: URL? {
+    // in case of url has %
     let encodedURL = message.locationURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     return URL(string: encodedURL ?? "")
     

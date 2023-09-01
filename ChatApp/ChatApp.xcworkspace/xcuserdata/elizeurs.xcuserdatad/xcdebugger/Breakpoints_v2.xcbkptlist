@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8228B886-4070-48CE-86E9-2E67F8CDC2D3"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CA11473-1548-4A37-95A2-33520C12965C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChatApp/Module/Controller/Chat/ExtensionChatViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "uploadLocation(lat:lng:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2CA11473-1548-4A37-95A2-33520C12965C - 6c4cf676fcb042d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChatApp.ChatViewController.uploadLocation(lat: Swift.String, lng: Swift.String) -&gt; ()"
+                  moduleName = "ChatApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SAMSUNG/Study/iOS/Swift/Swift%20&amp;%20iOS%20%7C%20WhatsApp%20Chat%20%7C%20MVVM%20%7C%20Firestore%20socket/ChatApp/ChatApp/Module/Controller/Chat/ExtensionChatViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "589">
+               </Location>
+               <Location
+                  uuid = "2CA11473-1548-4A37-95A2-33520C12965C - 6c4cf676fcb042f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChatApp.ChatViewController.uploadLocation(lat: Swift.String, lng: Swift.String) -&gt; ()"
+                  moduleName = "ChatApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SAMSUNG/Study/iOS/Swift/Swift%20&amp;%20iOS%20%7C%20WhatsApp%20Chat%20%7C%20MVVM%20%7C%20Firestore%20socket/ChatApp/ChatApp/Module/Controller/Chat/ExtensionChatViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "117">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
