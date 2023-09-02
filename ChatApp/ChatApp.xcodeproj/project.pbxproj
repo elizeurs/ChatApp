@@ -53,6 +53,7 @@
 		75DBEE0A2A673B1E00A83291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE092A673B1E00A83291 /* LoginViewController.swift */; };
 		75DBEE0C2A673BED00A83291 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */; };
 		75E6DB9F2A8AA19F00FB0AD9 /* CollectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */; };
+		75E843FA2AA3B55600B4EE8F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E843F92AA3B55600B4EE8F /* ProfileViewController.swift */; };
 		75EA65BB2A8976F7001C409D /* ChatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA65BA2A8976F7001C409D /* ChatHeader.swift */; };
 		75EA90252A673456009D10AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90242A673456009D10AB /* AppDelegate.swift */; };
 		75EA90272A673456009D10AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA90262A673456009D10AB /* SceneDelegate.swift */; };
@@ -101,6 +102,7 @@
 		75DBEE092A673B1E00A83291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75DBEE0B2A673BED00A83291 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViews.swift; sourceTree = "<group>"; };
+		75E843F92AA3B55600B4EE8F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		75EA65BA2A8976F7001C409D /* ChatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeader.swift; sourceTree = "<group>"; };
 		75EA90212A673456009D10AB /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA90242A673456009D10AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,14 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		75E843F82AA3B53100B4EE8F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				75E843F92AA3B55600B4EE8F /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		75EA90182A673456009D10AB = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 		75EA903B2A6737D3009D10AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				75E843F82AA3B53100B4EE8F /* Profile */,
 				751DDEBC2A7826170063C44A /* Chat */,
 				75C868EB2A7084EC0093F977 /* Conversation */,
 				75DBEE092A673B1E00A83291 /* LoginViewController.swift */,
@@ -511,6 +522,7 @@
 				759C26F02A9EA1740005DA49 /* ChatMapVC.swift in Sources */,
 				75A5F3F12A77181C005AACFE /* UserCell.swift in Sources */,
 				755751E92A95631100EDE038 /* AKAudioRecorder.swift in Sources */,
+				75E843FA2AA3B55600B4EE8F /* ProfileViewController.swift in Sources */,
 				75EA90292A673456009D10AB /* ViewController.swift in Sources */,
 				75A5F3EF2A76D666005AACFE /* ConversationCell.swift in Sources */,
 				75EC6F702A9AAB0C00ECDDA0 /* FLocationManager.swift in Sources */,
