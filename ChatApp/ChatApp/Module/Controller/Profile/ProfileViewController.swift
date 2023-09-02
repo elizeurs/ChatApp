@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController {
   
   private let profileImageView = CustomImageView(backgroundColor: .lightGray, cornerRadius: 20)
   
+  private let tableView = UITableView()
+  private let reuseIdentifier = "ProfileCell"
+  
   // MARK: - Lifecycle
   init(user: User) {
     self.user = user
@@ -28,6 +31,8 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    configureTableView()
+    configureData()
   }
   
   // MARK: - Helpers
@@ -40,6 +45,37 @@ class ProfileViewController: UIViewController {
     profileImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
     profileImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4).isActive = true
     profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor, multiplier: 1).isActive = true
+    
+    view.addSubview(tableView)
+    tableView.anchor(top: profileImageView.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 25, paddingRight: 20)
   }
   
+  private func configureTableView() {
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.register(ProfileCell.self, forCellReuseIdentifier: reuseIdentifier)
+    tableView.tableFooterView = UIView()
+    tableView.rowHeight = 70
+    tableView.showsVerticalScrollIndicator = false
+  }
+  
+  private func configureData() {
+    tableView.reloadData()
+    guard let imageURL = URL(string: user.profileImageURL) else { return }
+    profileImageView.sd_setImage(with: imageURL)
+    profileImageView.contentMode = .scaleAspectFill
+  }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 3
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ProfileCell
+    return cell
+  }
 }
