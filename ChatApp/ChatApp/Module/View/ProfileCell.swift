@@ -11,6 +11,12 @@ class ProfileCell: UITableViewCell {
   
   // MARK: - Properties
   
+  var viewModel: ProfileViewModel? {
+    didSet {
+      configure()
+    }
+  }
+  
   private let titleLabel = CustomLabel(text: "Name", labelColor: .red)
   private let userLabel = CustomLabel(text: "Oprah")
   
@@ -34,5 +40,10 @@ class ProfileCell: UITableViewCell {
   
   
   // MARK: - Helpers
-
+  private func configure() {
+    guard let viewModel = viewModel else { return }
+    
+    titleLabel.text = viewModel.fieldTitle
+    userLabel.text = viewModel.optionType
+  }
 }
