@@ -18,6 +18,20 @@ class ProfileViewController: UIViewController {
   private let tableView = UITableView()
   private let reuseIdentifier = "ProfileCell"
   
+  private lazy var editButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Edit Profile", for: .normal)
+    button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    button.tintColor = .white
+    button.tintColor = .white
+    button.backgroundColor = .lightGray
+    button.setDimensions(height: 50, width: 200)
+    button.layer.cornerRadius = 12
+    button.clipsToBounds = true
+    button.addTarget(self, action: #selector(handleEditProfile), for: .touchUpInside)
+    return button
+  }()
+  
   // MARK: - Lifecycle
   init(user: User) {
     self.user = user
@@ -48,6 +62,10 @@ class ProfileViewController: UIViewController {
     
     view.addSubview(tableView)
     tableView.anchor(top: profileImageView.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 25, paddingRight: 20)
+    
+    view.addSubview(editButton)
+    editButton.centerX(inView: view)
+    editButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 20)
   }
   
   private func configureTableView() {
@@ -64,6 +82,11 @@ class ProfileViewController: UIViewController {
     guard let imageURL = URL(string: user.profileImageURL) else { return }
     profileImageView.sd_setImage(with: imageURL)
     profileImageView.contentMode = .scaleAspectFill
+  }
+  
+  @objc func handleEditProfile() {
+    let controller = EditProfileViewController(user: user)
+    navigationController?.pushViewController(controller, animated: true)
   }
 }
 
