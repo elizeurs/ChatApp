@@ -102,15 +102,42 @@ class EditProfileViewController: UIViewController {
   }
   
   @objc func handleSubmitProfile() {
+    guard let fullname = fullnametxt.text else { return }
+    guard let username = usernametxt.text else { return }
+    
+    showLoader(true)
     if selectImage == nil {
       // update the data without image
+      let params = [
+        "fullname": fullname,
+        "username": username
+      ]
+      
+      updateUser(params: params)
+      
     } else {
       // update with the image
+      guard let selectImage = selectImage else { return }
+      FileUploader.uploadImage(image: selectImage) { imageURL in
+        let params = [
+          "fullname": fullname,
+          "username": username,
+          "profileImageURL": imageURL
+        ]
+        
+        self.updateUser(params: params)
+      }
     }
   }
   
   @objc func handleImageTap() {
     present(imagePicker, animated: true)
+  }
+  
+  private func updateUser(params: [String: Any]) {
+    UserServices.setNewUserData(data: params) { _ in
+      self.showLoader(false)
+    }
   }
 }
 

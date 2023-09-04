@@ -28,4 +28,10 @@ struct UserServices {
       completion(users)
     }
   }
+  
+  static func setNewUserData(data: [String: Any], completion: @escaping(Error?) -> Void) {
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    
+    Collection_User.document(uid).updateData(data, completion: completion)
+  }
 }
