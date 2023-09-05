@@ -43,6 +43,8 @@ class ConversationViewController: UIViewController {
     }
   }
   
+  private var filterConversation: [Message] = []
+  
   private let searchController = UISearchController(searchResultsController: nil)
   private var conversationDictionary = [String: Message]()
   
@@ -215,14 +217,26 @@ extension ConversationViewController: NewChatViewControllerDelegate {
 
 extension ConversationViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    print(searchController.searchBar.text)
+//    print(searchController.searchBar.text)
+    guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+    filterConversation = conversations.filter({$0.username.contains(searchText) || $0.fullname.lowercased().contains(searchText)})
+    print(filterConversation)
+    tableView.reloadData()
   }
 }
 
 // MARK: - UISearchBarDelegate
 
 extension ConversationViewController: UISearchBarDelegate {
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = true
+  }
   
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.endEditing(true)
+    searchBar.text = nil
+    searchBar.showsCancelButton = false
+  }
 }
 
 
