@@ -43,6 +43,7 @@ class ConversationViewController: UIViewController {
     }
   }
   
+  private let searchController = UISearchController(searchResultsController: nil)
   private var conversationDictionary = [String: Message]()
   
   private lazy var profileButton: UIButton = {
@@ -72,6 +73,7 @@ class ConversationViewController: UIViewController {
     configureUI()
     configureTableView()
     fetchConversations()
+    configureSearchController()
   }
   
   // MARK: - Helpers
@@ -105,6 +107,16 @@ class ConversationViewController: UIViewController {
     profileButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 10, paddingRight: 20)
     
     NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateProfile), name: .userProfile, object: nil)
+  }
+  
+  private func configureSearchController() {
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.obscuresBackgroundDuringPresentation = false
+    definesPresentationContext = false
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.delegate = self
+    searchController.searchBar.placeholder = "Search"
+    navigationItem.searchController = searchController
   }
   
   private func fetchConversations() {
@@ -198,3 +210,19 @@ extension ConversationViewController: NewChatViewControllerDelegate {
     openChat(currentUser: user, otherUser: otherUser)
   }
 }
+
+// MARK: - UISearchResultsUpdating
+
+extension ConversationViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    print(searchController.searchBar.text)
+  }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension ConversationViewController: UISearchBarDelegate {
+  
+}
+
+
