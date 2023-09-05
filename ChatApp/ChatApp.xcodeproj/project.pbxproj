@@ -14,6 +14,7 @@
 		751DDEBE2A78263A0063C44A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DDEBD2A78263A0063C44A /* ChatViewController.swift */; };
 		751DDEC02A78282B0063C44A /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DDEBF2A78282B0063C44A /* ChatCell.swift */; };
 		751E81822A7D855B007F26F3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E81812A7D855B007F26F3 /* UserViewModel.swift */; };
+		75239C842AA79013004F87C3 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75239C832AA79013004F87C3 /* NotificationCenter.swift */; };
 		752677202A69941B00E4B709 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7526771F2A69941B00E4B709 /* Buttons.swift */; };
 		752677222A69C70600E4B709 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752677212A69C70600E4B709 /* LoginViewModel.swift */; };
 		75474B8B2A8FE87500E76BE8 /* ExtensionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */; };
@@ -79,6 +80,7 @@
 		751DDEBD2A78263A0063C44A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		751DDEBF2A78282B0063C44A /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		751E81812A7D855B007F26F3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		75239C832AA79013004F87C3 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		7526771F2A69941B00E4B709 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		752677212A69C70600E4B709 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		75474B8A2A8FE87500E76BE8 /* ExtensionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionChatViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				7526771F2A69941B00E4B709 /* Buttons.swift */,
 				75A438642A716B3400D4D844 /* VC.swift */,
 				75E6DB9E2A8AA19F00FB0AD9 /* CollectionViews.swift */,
+				75239C832AA79013004F87C3 /* NotificationCenter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				75AEA3332A6DCE5500808B4A /* CustomImageView.swift in Sources */,
 				75EE6AFE2A7EC0B90032B8E3 /* MessageServices.swift in Sources */,
 				75C9599E2A71C998004B162B /* LoginGoogle.swift in Sources */,
+				75239C842AA79013004F87C3 /* NotificationCenter.swift in Sources */,
 				75A438652A716B3400D4D844 /* VC.swift in Sources */,
 				751B02E12A7449ED00E07433 /* User.swift in Sources */,
 				75EA90252A673456009D10AB /* AppDelegate.swift in Sources */,

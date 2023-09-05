@@ -137,6 +137,7 @@ class EditProfileViewController: UIViewController {
   private func updateUser(params: [String: Any]) {
     UserServices.setNewUserData(data: params) { _ in
       self.showLoader(false)
+      NotificationCenter.default.post(name: .userProfile, object: nil)
     }
   }
 }

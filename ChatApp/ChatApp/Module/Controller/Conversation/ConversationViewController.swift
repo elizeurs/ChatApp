@@ -103,6 +103,8 @@ class ConversationViewController: UIViewController {
     
     view.addSubview(profileButton)
     profileButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 10, paddingRight: 20)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateProfile), name: .userProfile, object: nil)
   }
   
   private func fetchConversations() {
@@ -151,6 +153,15 @@ class ConversationViewController: UIViewController {
   @objc func handleProfileButton() {
     let controller = ProfileViewController(user: user)
     navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  @objc func handleUpdateProfile() {
+    UserServices.fetchUser(uid: user.uid) { user in
+      self.user = user
+      self.title = user.fullname
+      
+      //    print("Conversation")
+    }
   }
 }
 

@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
   
   // MARK: - Properties
   
-  private let user: User
+  private var user: User
   
   private let profileImageView = CustomImageView(backgroundColor: .lightGray, cornerRadius: 20)
   
@@ -47,6 +47,8 @@ class ProfileViewController: UIViewController {
     configureUI()
     configureTableView()
     configureData()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateProfile), name: .userProfile, object: nil)
   }
   
   // MARK: - Helpers
@@ -87,6 +89,16 @@ class ProfileViewController: UIViewController {
   @objc func handleEditProfile() {
     let controller = EditProfileViewController(user: user)
     navigationController?.pushViewController(controller, animated: true)
+  }
+  
+  @objc func handleUpdateProfile() {
+    navigationController?.popViewController(animated: true)
+    UserServices.fetchUser(uid: user.uid) { user in
+      self.user = user
+      self.configureData()
+    }
+    
+//    print("User Profile")
   }
 }
 
