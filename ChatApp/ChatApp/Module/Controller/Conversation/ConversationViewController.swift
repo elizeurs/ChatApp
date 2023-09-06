@@ -39,6 +39,7 @@ class ConversationViewController: UIViewController {
   
   private var conversations: [Message] = [] {
     didSet {
+      emptyView.isHidden = !conversations.isEmpty
       tableView.reloadData()
     }
   }
@@ -51,6 +52,16 @@ class ConversationViewController: UIViewController {
   var inSearchMode: Bool {
     return searchController.isActive && !searchController.searchBar.text!.isEmpty
   }
+  
+  private let emptyView: UIView = {
+    let view = UIView()
+    view.backgroundColor = .black.withAlphaComponent(0.5)
+    view.layer.cornerRadius = 12
+    view.isHidden = true
+    return view
+  }()
+  
+  private let emptyLabel = CustomLabel(text: "There are no conversation. Click add to start chatting now", labelColor: .yellow)
   
   private lazy var profileButton: UIButton = {
     let button = UIButton(type: .system)
@@ -111,6 +122,12 @@ class ConversationViewController: UIViewController {
     
     view.addSubview(profileButton)
     profileButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 10, paddingRight: 20)
+    
+    view.addSubview(emptyView)
+    emptyView.anchor(left: view.leftAnchor, bottom: profileButton.topAnchor, right: view.rightAnchor, paddingLeft: 25, paddingBottom: 25, paddingRight: 25, height: 50)
+    
+    view.addSubview(emptyLabel)
+    emptyLabel.anchor(top: emptyView.topAnchor, left: emptyView.leftAnchor, bottom: emptyView.bottomAnchor, right: emptyView.rightAnchor, paddingTop: 7, paddingLeft: 7, paddingBottom: 7, paddingRight: 7)
     
     NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateProfile), name: .userProfile, object: nil)
   }
