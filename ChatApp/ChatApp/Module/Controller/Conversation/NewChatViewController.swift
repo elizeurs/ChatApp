@@ -16,6 +16,8 @@ class NewChatViewController: UIViewController {
   // MARK: - Properties
   
   weak var delegate:  NewChatViewControllerDelegate?
+  private var filteredUsers: [User] = []
+  private let searchController = UISearchController(searchResultsController: nil)
   
   private let tableView = UITableView()
   private let reuseIdentifier = "UserCell"
@@ -23,6 +25,10 @@ class NewChatViewController: UIViewController {
     didSet {
       self.tableView.reloadData()
     }
+  }
+  
+  var inSearchMode: Bool {
+    return searchController.isActive && !searchController.searchBar.text!.isEmpty
   }
 
 //    init(users: [User]) {
@@ -40,6 +46,7 @@ class NewChatViewController: UIViewController {
     configureTableView()
     configureUI()
     fetchUsers()
+    configureSearchController()
   }
   
   // MARK: - Helpers
@@ -73,23 +80,59 @@ class NewChatViewController: UIViewController {
 //      print("\(users)")
     }
   }
+  
+  private func configureSearchController() {
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.obscuresBackgroundDuringPresentation = false
+    definesPresentationContext = false
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.delegate = self
+    searchController.searchBar.placeholder = "Search"
+    navigationItem.searchController = searchController
+  }
 }
 
 // MARK: - TableView
 extension NewChatViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return users.count
+    return inSearchMode ? filteredUsers.count : users.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
-    let user = users[indexPath.row]
+    let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
     cell.viewModel = UserViewModel(user: user)
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let user = users[indexPath.row]
+    let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
     delegate?.controller(self, wantToChatWithUser: user)
+  }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension NewChatViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+//    print(searchController.searchBar.text)
+    guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+    filteredUsers = users.filter({$0.username.contains(searchText) || $0.fullname.lowercased().contains(searchText)})
+    
+    tableView.reloadData()
+  }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension NewChatViewController: UISearchBarDelegate {
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchBar.showsCancelButton = true
+  }
+  
+  func NewChatViewController(_ searchBar: UISearchBar) {
+    searchBar.endEditing(true)
+    searchBar.text = nil
+    searchBar.showsCancelButton = false
   }
 }
