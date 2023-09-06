@@ -48,6 +48,10 @@ class ConversationViewController: UIViewController {
   private let searchController = UISearchController(searchResultsController: nil)
   private var conversationDictionary = [String: Message]()
   
+  var inSearchMode: Bool {
+    return searchController.isActive && !searchController.searchBar.text!.isEmpty
+  }
+  
   private lazy var profileButton: UIButton = {
     let button = UIButton(type: .system)
     button.setImage(UIImage(systemName: "info"), for: .normal)
@@ -182,18 +186,18 @@ class ConversationViewController: UIViewController {
 // MARK: - TableView
 extension ConversationViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return conversations.count
+    return inSearchMode ? filterConversation.count :  conversations.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ConversationCell
-    let conversation = conversations[indexPath.row]
+    let conversation = inSearchMode ? filterConversation[indexPath.row] : conversations[indexPath.row]
     cell.viewModel = MessageViewModel(message: conversation)
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let conversation = conversations[indexPath.row]
+    let conversation = inSearchMode ? filterConversation[indexPath.row] : conversations[indexPath.row]
     
     showLoader(true)
     UserServices.fetchUser(uid: conversation.chatPartnerID) { [self] otherUser in
