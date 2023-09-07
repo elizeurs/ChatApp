@@ -229,13 +229,24 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle ==  .delete {
-      if inSearchMode {
-        filterConversation.remove(at: indexPath.row)
-      } else {
-        conversations.remove(at: indexPath.row)
+      showLoader(true)
+      let conversation = inSearchMode ? filterConversation[indexPath.row] : conversations[indexPath.row]
+
+      MessageServices.deleteMessages(otherUser: conversation.toID) { [self] error in
+        showLoader(false)
+        if let error = error {
+          print(error.localizedDescription)
+          return
+        }
+        
+        if inSearchMode {
+          filterConversation.remove(at: indexPath.row)
+        } else {
+          conversations.remove(at: indexPath.row)
+        }
+        
+        tableView.reloadData()
       }
-      
-      tableView.reloadData()
     }
   }
 }
