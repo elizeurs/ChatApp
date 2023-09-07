@@ -222,6 +222,22 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
       openChat(currentUser: user, otherUser: otherUser)
     }
   }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle ==  .delete {
+      if inSearchMode {
+        filterConversation.remove(at: indexPath.row)
+      } else {
+        conversations.remove(at: indexPath.row)
+      }
+      
+      tableView.reloadData()
+    }
+  }
 }
 
 // MARK: - NewChatViewControllerDelegate
