@@ -30,15 +30,6 @@ class NewChatViewController: UIViewController {
   var inSearchMode: Bool {
     return searchController.isActive && !searchController.searchBar.text!.isEmpty
   }
-
-//    init(users: [User]) {
-//    self.users = users
-//    super.init(nibName: nil, bundle: nil)
-//  }
-  
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
   
   // MARK: - Lifescycle
   override func viewDidLoad() {
@@ -77,7 +68,7 @@ class NewChatViewController: UIViewController {
       guard let uid = Auth.auth().currentUser?.uid else { return }
       guard let index = self.users.firstIndex(where: {$0.uid == uid}) else { return }
       self.users.remove(at: index)
-//      print("\(users)")
+      //      print("\(users)")
     }
   }
   
