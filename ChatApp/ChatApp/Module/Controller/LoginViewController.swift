@@ -176,7 +176,8 @@ class LoginViewController: UIViewController {
   }
   
   @objc func handleGoogleSignInVC() {
-//    setupGoogle()
+    showLoader(true)
+    setupGoogle()
   }
   
   @objc func handleTextChanged(sender: UITextField) {
@@ -191,7 +192,7 @@ class LoginViewController: UIViewController {
     loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
   }
   
-  private func navToConversationVC() {
+  func navToConversationVC() {
     guard let uid = Auth.auth().currentUser?.uid else { return }
     showLoader(true)
     UserServices.fetchUser(uid: uid) { user in
@@ -200,7 +201,7 @@ class LoginViewController: UIViewController {
       let nav = UINavigationController(rootViewController: controller)
       nav.modalPresentationStyle = .fullScreen
       self.present(nav, animated: true, completion: nil)
-//      print("User \(user)")
+      //      print("User \(user)")
     }
   }
 }

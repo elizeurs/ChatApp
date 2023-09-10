@@ -5,21 +5,6 @@
 //  Created by Ahmad Mustafa on 02/02/2022.
 //
 
-
-
-import UIKit
-import GoogleSignIn
-import Firebase
-
-extension LoginViewController {
-    
-}
-
-
-
-
-
-
 import UIKit
 import GoogleSignIn
 import Firebase
@@ -144,6 +129,28 @@ extension LoginViewController {
 // MARK: - Login user info
 extension LoginViewController {
   func updateUserInfo() {
-    print("Succ login with Google...!!!")
+    guard let user = Auth.auth().currentUser else { return }
+    
+    guard let email = user.email,
+    let fullname = user.displayName,
+    let photoURL = user.photoURL else { return }
+    
+    let uid = user.uid
+    let username = fullname.replacingOccurrences(of: " ", with: "").lowercased()
+    
+    getImage(withImageURL: photoURL) { image in
+      let credential = AuthCredentialEmail(email: email, uid: uid, username: username, fullname: fullname, profileImage: image)
+      
+      AuthServices.registerWithGoogle(credential: credential) { error in
+        self.showLoader(false)
+        if let error = error {
+          self.showMessage(title: "Error", message: error.localizedDescription)
+          return
+        }
+        
+        print("Succ login with Google...!!!")
+        self.navToConversationVC()
+      }
+    }
   }
 }
